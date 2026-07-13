@@ -1,0 +1,313 @@
+{
+    "input_path": "c:\\Users\\12908\\Desktop\\vi_project\\Paddle_OCR_Parsing\\input\\超高压输电公司.png",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                161.0150909423828,
+                0.45302537083625793,
+                320.0933532714844,
+                118.8208236694336
+            ],
+            "block_label": "image",
+            "block_content": "丰"
+        },
+        {
+            "block_bbox": [
+                120.20072937011719,
+                136.34217834472656,
+                356.0714111328125,
+                184.0727081298828
+            ],
+            "block_label": "doc_title",
+            "block_content": "中国南方电网\nCHINA SOUTHERN POWER GRID"
+        },
+        {
+            "block_bbox": [
+                0.2578160762786865,
+                202.36180114746094,
+                471.7705078125,
+                265.7911376953125
+            ],
+            "block_label": "doc_title",
+            "block_content": "超高压输电公司"
+        },
+        {
+            "block_bbox": [
+                0.05119076371192932,
+                284.7842102050781,
+                476.9398498535156,
+                305.6070251464844
+            ],
+            "block_label": "doc_title",
+            "block_content": ""
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 11,
+                "label": "doc_title",
+                "score": 0.9223212599754333,
+                "coordinate": [
+                    120.20072937011719,
+                    136.34217834472656,
+                    356.0714111328125,
+                    184.0727081298828
+                ]
+            },
+            {
+                "cls_id": 11,
+                "label": "doc_title",
+                "score": 0.8555775880813599,
+                "coordinate": [
+                    0.2578160762786865,
+                    202.36180114746094,
+                    471.7705078125,
+                    265.7911376953125
+                ]
+            },
+            {
+                "cls_id": 1,
+                "label": "image",
+                "score": 0.773165762424469,
+                "coordinate": [
+                    161.0150909423828,
+                    0.45302537083625793,
+                    320.0933532714844,
+                    118.8208236694336
+                ]
+            },
+            {
+                "cls_id": 11,
+                "label": "doc_title",
+                "score": 0.6919947266578674,
+                "coordinate": [
+                    0.05119076371192932,
+                    284.7842102050781,
+                    476.9398498535156,
+                    305.6070251464844
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    147,
+                    0
+                ],
+                [
+                    331,
+                    0
+                ],
+                [
+                    336,
+                    132
+                ],
+                [
+                    152,
+                    138
+                ]
+            ],
+            [
+                [
+                    120,
+                    138
+                ],
+                [
+                    356,
+                    138
+                ],
+                [
+                    356,
+                    170
+                ],
+                [
+                    120,
+                    170
+                ]
+            ],
+            [
+                [
+                    119,
+                    173
+                ],
+                [
+                    357,
+                    173
+                ],
+                [
+                    357,
+                    186
+                ],
+                [
+                    119,
+                    186
+                ]
+            ],
+            [
+                [
+                    3,
+                    205
+                ],
+                [
+                    470,
+                    207
+                ],
+                [
+                    470,
+                    266
+                ],
+                [
+                    3,
+                    264
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1,
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "丰",
+            "中国南方电网",
+            "CHINA SOUTHERN POWER GRID",
+            "超高压输电公司"
+        ],
+        "rec_scores": [
+            0.34703803062438965,
+            0.9995341300964355,
+            0.9812707304954529,
+            0.9996798634529114
+        ],
+        "rec_polys": [
+            [
+                [
+                    147,
+                    0
+                ],
+                [
+                    331,
+                    0
+                ],
+                [
+                    336,
+                    132
+                ],
+                [
+                    152,
+                    138
+                ]
+            ],
+            [
+                [
+                    120,
+                    138
+                ],
+                [
+                    356,
+                    138
+                ],
+                [
+                    356,
+                    170
+                ],
+                [
+                    120,
+                    170
+                ]
+            ],
+            [
+                [
+                    119,
+                    173
+                ],
+                [
+                    357,
+                    173
+                ],
+                [
+                    357,
+                    186
+                ],
+                [
+                    119,
+                    186
+                ]
+            ],
+            [
+                [
+                    3,
+                    205
+                ],
+                [
+                    470,
+                    207
+                ],
+                [
+                    470,
+                    266
+                ],
+                [
+                    3,
+                    264
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                147,
+                0,
+                336,
+                138
+            ],
+            [
+                120,
+                138,
+                356,
+                170
+            ],
+            [
+                119,
+                173,
+                357,
+                186
+            ],
+            [
+                3,
+                205,
+                470,
+                266
+            ]
+        ]
+    }
+}

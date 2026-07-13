@@ -1,0 +1,205 @@
+{
+    "input_path": "c:\\Users\\12908\\Desktop\\vi_project\\Paddle_OCR_Parsing\\input\\3.png",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                0,
+                0.4039740562438965,
+                258.11053466796875,
+                340
+            ],
+            "block_label": "image",
+            "block_content": "中国南方电网\nQUANZI ZIGONGSI QUANCHENG\n全资子公司全称"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 1,
+                "label": "image",
+                "score": 0.5437804460525513,
+                "coordinate": [
+                    0,
+                    0.4039740562438965,
+                    258.11053466796875,
+                    340
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    84,
+                    83
+                ],
+                [
+                    171,
+                    83
+                ],
+                [
+                    171,
+                    99
+                ],
+                [
+                    84,
+                    99
+                ]
+            ],
+            [
+                [
+                    101,
+                    113
+                ],
+                [
+                    119,
+                    113
+                ],
+                [
+                    118,
+                    326
+                ],
+                [
+                    100,
+                    325
+                ]
+            ],
+            [
+                [
+                    116,
+                    111
+                ],
+                [
+                    155,
+                    111
+                ],
+                [
+                    155,
+                    330
+                ],
+                [
+                    116,
+                    330
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "中国南方电网",
+            "QUANZI ZIGONGSI QUANCHENG",
+            "全资子公司全称"
+        ],
+        "rec_scores": [
+            0.9995506405830383,
+            0.9704867601394653,
+            0.9996461868286133
+        ],
+        "rec_polys": [
+            [
+                [
+                    84,
+                    83
+                ],
+                [
+                    171,
+                    83
+                ],
+                [
+                    171,
+                    99
+                ],
+                [
+                    84,
+                    99
+                ]
+            ],
+            [
+                [
+                    101,
+                    113
+                ],
+                [
+                    119,
+                    113
+                ],
+                [
+                    118,
+                    326
+                ],
+                [
+                    100,
+                    325
+                ]
+            ],
+            [
+                [
+                    116,
+                    111
+                ],
+                [
+                    155,
+                    111
+                ],
+                [
+                    155,
+                    330
+                ],
+                [
+                    116,
+                    330
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                84,
+                83,
+                171,
+                99
+            ],
+            [
+                100,
+                113,
+                119,
+                326
+            ],
+            [
+                116,
+                111,
+                155,
+                330
+            ]
+        ]
+    }
+}

@@ -1,0 +1,1092 @@
+{
+  "version": "1.0",
+  "description": "品牌标识合规判定规则模板库。每条规则对应一种品牌类别+布局组合，用于在标准间距检测后判定各项指标是否合规。",
+  "base_ratio": 2.95,
+  "base_ratio_vertical": 3.25,
+  "base_ratio_centered": 0.85,
+  "base_ratio_R01_horizontal": 4.02,
+  "note": "R03横式 A=x轴间距/2.95; R03竖式 A=y轴间距/3.25; R03中置式 A=y轴间距/0.85; R01横式 A=x轴间距/4.02",
+  "rules": [
+    {
+      "id": "R02-横式",
+      "brand_rule_id": "R02",
+      "brand_type": "品牌标识组合使用规范",
+      "layout_type": "横式",
+      "description": "品牌标识+子公司名称，横式布局",
+      "base_distance": {
+        "source": "x轴间距",
+        "formula": "logo_center到'中国南方电网'中心的x距离 / 3.05",
+        "variable": "A"
+      },
+      "measurements": {
+        "A": "基准距离（反推）",
+        "logo_right": "logo检测框 x2",
+        "logo_height": "logo检测框高度",
+        "logo_width": "logo检测框宽度",
+        "cn_text_width": "'中国南方电网'文字框宽度",
+        "cn_text_height": "'中国南方电网'文字框高度",
+        "cn_text_left": "'中国南方电网'文字框 x1",
+        "text_leftmost": "中英文文字框最左端 x1",
+        "en_text_bottom": "英文文字框 y2",
+        "subsidiary_top": "子公司文字框 y1",
+        "subsidiary_height": "子公司文字框高度",
+        "subsidiary_left": "子公司文字框 x1"
+      },
+      "checks": [
+        {
+          "name": "间距过长",
+          "description": "A大于logo实际高度或1.3倍A大于logo实际宽度",
+          "condition": "A > logo_height OR 1.3 * A > logo_width",
+          "severity": "error"
+        },
+        {
+          "name": "横向间距过大",
+          "description": "logo右端与文字左端间距超过0.8倍基准距离",
+          "condition": "text_leftmost - logo_right > 0.8 * A",
+          "severity": "error"
+        },
+        {
+          "name": "横向间距过小",
+          "description": "logo右端与文字左端间距小于0.1倍基准距离",
+          "condition": "text_leftmost - logo_right < 0.1 * A",
+          "severity": "error"
+        },
+        {
+          "name": "中文字体过大",
+          "description": "'中国南方电网'文字宽度超过5.5倍基准距离",
+          "condition": "cn_text_width > 5.5 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "中文字体过小",
+          "description": "'中国南方电网'文字宽度小于3倍基准距离",
+          "condition": "cn_text_width < 3 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "子公司间距过大",
+          "description": "英文品牌标识中心与子公司中心y轴距离超过1.08倍基准距离",
+          "condition": "subsidiary_center_y - en_text_center_y > 1.08 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "子公司间距过小",
+          "description": "英文品牌标识中心与子公司中心y轴距离小于0.36倍基准距离",
+          "condition": "subsidiary_center_y - en_text_center_y < 0.36 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "子公司字体过大",
+          "description": "子公司文字框高度超过1.2倍基准距离",
+          "condition": "subsidiary_height > 1.2 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "子公司字体过小",
+          "description": "子公司文字框高度小于0.2倍基准距离",
+          "condition": "subsidiary_height < 0.2 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "子公司左偏移",
+          "description": "子公司文字框与'中国南方电网'左端偏移超过0.5倍基准距离",
+          "condition": "subsidiary_left - cn_text_left > 0.5 * A OR cn_text_left - subsidiary_left > 0.5 * A",
+          "severity": "warning"
+        }
+      ]
+    },
+    {
+      "id": "R02-中置式",
+      "brand_rule_id": "R02",
+      "brand_type": "品牌标识组合使用规范",
+      "layout_type": "中置式",
+      "variant": "具体单位",
+      "description": "品牌标识+子公司具体单位名称，中置式布局（上部中置式，下部纵向双框-中文单位名）。",
+      "base_distance": {
+        "source": "y轴间距",
+        "formula": "logo_center到'中国南方电网'中心的y距离 / 0.752",
+        "variable": "A"
+      },
+      "measurements": {
+        "A": "基准距离（反推）",
+        "logo_height": "logo检测框高度",
+        "logo_width": "logo检测框宽度",
+        "cn_text_bottom": "'中国南方电网'文字框 y2",
+        "sub_upper_top": "上部子公司框 y1",
+        "sub_upper_height": "上部子公司框高度",
+        "sub_lower_height": "下部子公司框高度"
+      },
+      "checks": [
+        {
+          "name": "间距过长",
+          "description": "A大于logo实际高度或1.3倍A大于logo实际宽度",
+          "condition": "A > logo_height OR 1.3 * A > logo_width",
+          "severity": "error"
+        },
+        {
+          "name": "上部框间距过大",
+          "description": "子公司上部框距中置式超过1A",
+          "condition": "sub_upper_top - cn_text_bottom > 0.6 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "上部框间距过小",
+          "description": "子公司上部框距中置式小于0.1A",
+          "condition": "sub_upper_top - cn_text_bottom < 0.1 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "上部框高度异常",
+          "description": "子公司上部框高度不在0.25-1.4A范围",
+          "condition": "sub_upper_height < 0.25 * A OR sub_upper_height > 1.4 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "下部框高度异常",
+          "description": "子公司下部框高度不在0.12-0.95A范围",
+          "condition": "sub_lower_height < 0.12 * A OR sub_lower_height > 0.95 * A",
+          "severity": "warning"
+        }
+      ]
+    },
+    {
+      "id": "R02-中置式-英文全称",
+      "brand_rule_id": "R02",
+      "brand_type": "品牌标识组合使用规范",
+      "layout_type": "中置式",
+      "variant": "中英文全称",
+      "description": "品牌标识+子公司中英文全称，中置式布局（上部中置式，下部纵向双框-英文全称+中文单位名）。",
+      "base_distance": {
+        "source": "y轴间距",
+        "formula": "logo_center到'中国南方电网'中心的y距离 / 0.752",
+        "variable": "A"
+      },
+      "measurements": {
+        "A": "基准距离（反推）",
+        "logo_height": "logo检测框高度",
+        "logo_width": "logo检测框宽度",
+        "cn_text_bottom": "'中国南方电网'文字框 y2",
+        "cn_text_height": "'中国南方电网'文字框高度",
+        "cn_text_width": "'中国南方电网'文字框宽度",
+        "sub_upper_top": "上部子公司框 y1",
+        "sub_upper_height": "上部子公司框高度",
+        "sub_upper_width": "上部子公司框宽度",
+        "sub_lower_height": "下部子公司框高度",
+        "sub_lower_width": "下部子公司框宽度",
+        "sub_has_en": "是否含英文（1=是）"
+      },
+      "checks": [
+        {
+          "name": "间距过长",
+          "description": "A大于logo实际高度或1.3倍A大于logo实际宽度",
+          "condition": "A > logo_height OR 1.3 * A > logo_width",
+          "severity": "error"
+        },
+        {
+          "name": "上部框间距过大",
+          "description": "子公司上部框距中置式超过0.5A",
+          "condition": "sub_upper_top - cn_text_bottom > 0.5 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "上部框高度异常",
+          "description": "子公司上部框高度不在0.25-1.4A范围",
+          "condition": "sub_upper_height < 0.25 * A OR sub_upper_height > 1.4 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "下部框高度异常",
+          "description": "子公司下部框高度不在0.08-0.6A范围",
+          "condition": "sub_lower_height < 0.08 * A OR sub_lower_height > 0.6 * A",
+          "severity": "warning"
+        }
+      ]
+    },
+    {
+      "id": "R02-竖式",
+      "brand_rule_id": "R02",
+      "brand_type": "品牌标识组合使用规范",
+      "layout_type": "竖式",
+      "description": "品牌标识+子公司名称，竖式布局（上部中置式，下部子公司双框）",
+      "base_distance": {
+        "source": "y轴间距",
+        "formula": "logo_center到'中国南方电网'中心的y距离 / 0.752",
+        "variable": "A"
+      },
+      "measurements": {
+        "A": "基准距离（反推）",
+        "logo_height": "logo检测框高度",
+        "logo_width": "logo检测框宽度",
+        "logo_center_y": "logo中心 y",
+        "cn_text_top": "'中国南方电网'文字框 y1",
+        "cn_text_bottom": "'中国南方电网'文字框 y2",
+        "cn_text_width": "'中国南方电网'文字框宽度",
+        "cn_text_height": "'中国南方电网'文字框高度",
+        "sub_left_width": "左侧子公司框宽度",
+        "sub_right_width": "右侧子公司框宽度",
+        "sub_left_top": "左侧子公司框 y1",
+        "sub_right_top": "右侧子公司框 y1",
+        "sub_pair_range": "子公司双框左右总宽度"
+      },
+      "checks": [
+        {
+          "name": "间距过长",
+          "description": "A大于logo实际高度或1.3倍A大于logo实际宽度",
+          "condition": "A > logo_height OR 1.3 * A > logo_width",
+          "severity": "error"
+        },
+        {
+          "name": "文字高度过大",
+          "description": "'中国南方电网'文字高度超过2.4倍基准距离",
+          "condition": "cn_text_height > 2.4 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "文字宽度过大",
+          "description": "'中国南方电网'文字宽度超过4.2倍基准距离",
+          "condition": "cn_text_width > 4.2 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "子公司左框宽度异常",
+          "description": "左侧框宽度不在合理范围（英文0.12-0.72A，中文0.25-1.08A）",
+          "condition": "(sub_left_is_en == 1 AND (sub_left_width < 0.12 * A OR sub_left_width > 0.72 * A)) OR (sub_left_is_en == 0 AND (sub_left_width < 0.25 * A OR sub_left_width > 1.08 * A))",
+          "severity": "warning"
+        },
+        {
+          "name": "子公司右框宽度异常",
+          "description": "右侧中文框宽度不在0.32-1.44A范围",
+          "condition": "sub_right_width < 0.32 * A OR sub_right_width > 1.44 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "子公司撞上中文框",
+          "description": "子公司文字框顶部距离中文框底部过近（小于0）",
+          "condition": "sub_left_top - cn_text_bottom < 0 OR sub_right_top - cn_text_bottom < 0",
+          "severity": "error"
+        },
+        {
+          "name": "子公司距离异常",
+          "description": "子公司文字距上方中置式超过2倍基准距离",
+          "condition": "sub_left_top - cn_text_bottom > 2 * A OR sub_right_top - cn_text_bottom > 2 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "子公司总宽度异常",
+          "description": "子公司双框总宽度不符合规范（英文0.65-2.4A，中文0.8-2.6A）",
+          "condition": "(sub_left_is_en == 1 AND (sub_pair_range < 0.65 * A OR sub_pair_range > 2.4 * A)) OR (sub_left_is_en == 0 AND (sub_pair_range < 0.8 * A OR sub_pair_range > 2.6 * A))",
+          "severity": "warning"
+        }
+      ]
+    },
+    {
+      "id": "R01-横式",
+      "brand_rule_id": "R01",
+      "brand_type": "不同组合形式品牌标识-纯中文",
+      "layout_type": "横式",
+      "description": "纯中文品牌标识，横式布局（logo在左，中文在右）",
+      "base_distance": {
+        "source": "x轴间距",
+        "formula": "logo_center到cn_text_center的x距离 / 4.02",
+        "variable": "A"
+      },
+      "element_mappings": {
+        "logo": "csg_logo检测框 (x1,y1,x2,y2)",
+        "cn_text": "OCR '中国南方电网' 文字框 (x1,y1,x2,y2)"
+      },
+      "measurements": {
+        "A": "基准距离（反推）",
+        "logo_right": "logo检测框 x2",
+        "logo_top": "logo检测框 y1",
+        "logo_bottom": "logo检测框 y2",
+        "logo_height": "logo检测框高度 = y2 - y1",
+        "logo_width": "logo检测框宽度 = x2 - x1",
+        "cn_text_width": "'中国南方电网'文字框宽度 = x2 - x1",
+        "cn_text_top": "'中国南方电网'文字框 y1",
+        "cn_text_height": "'中国南方电网'文字框高度 = y2 - y1",
+        "text_leftmost": "'中国南方电网'文字框 x1"
+      },
+      "checks": [
+        {
+          "name": "间距过长",
+          "description": "A大于logo实际高度或1.3倍A大于logo实际宽度",
+          "condition": "A > logo_height OR 1.3 * A > logo_width",
+          "severity": "error"
+        },
+        {
+          "name": "文字宽度过大",
+          "description": "文字框宽度超过9倍基准距离",
+          "condition": "cn_text_width > 9 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "文字宽度过小",
+          "description": "文字框宽度小于5倍基准距离",
+          "condition": "cn_text_width < 5 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "横向间距过小",
+          "description": "logo右端与文字左端间距小于0.19倍基准距离",
+          "condition": "text_leftmost - logo_right < 0.19 * A",
+          "severity": "error"
+        },
+        {
+          "name": "横向间距过大",
+          "description": "logo右端与文字左端间距超过0.5倍基准距离",
+          "condition": "text_leftmost - logo_right > 0.5 * A",
+          "severity": "error"
+        },
+        {
+          "name": "字体过大",
+          "description": "文字框高度超过1.2倍基准距离",
+          "condition": "cn_text_height > 1.2 * A",
+          "severity": "warning"
+        }
+      ]
+    },
+    {
+      "id": "R01-中置式",
+      "brand_rule_id": "R01",
+      "brand_type": "不同组合形式品牌标识-纯中文",
+      "layout_type": "中置式",
+      "description": "纯中文品牌标识，中置式布局（logo在上居中，中文在下居中）",
+      "base_distance": {
+        "source": "y轴间距",
+        "formula": "logo_center到cn_text_center的y距离 / 0.98",
+        "variable": "A"
+      },
+      "element_mappings": {
+        "logo": "csg_logo检测框 (x1,y1,x2,y2)",
+        "cn_text": "OCR '中国南方电网' 文字框 (x1,y1,x2,y2)"
+      },
+      "measurements": {
+        "A": "基准距离（反推）",
+        "logo_top": "logo检测框 y1",
+        "logo_bottom": "logo检测框 y2",
+        "logo_height": "logo检测框高度 = y2 - y1",
+        "logo_width": "logo检测框宽度 = x2 - x1",
+        "cn_text_width": "'中国南方电网'文字框宽度 = x2 - x1",
+        "cn_text_height": "'中国南方电网'文字框高度 = y2 - y1",
+        "cn_text_top": "'中国南方电网'文字框 y1"
+      },
+      "checks": [
+        {
+          "name": "间距过长",
+          "description": "A大于logo实际高度或1.3倍A大于logo实际宽度",
+          "condition": "A > logo_height OR 1.3 * A > logo_width",
+          "severity": "error"
+        },
+        {
+          "name": "文字宽度过大",
+          "description": "文字框宽度超过4.2倍基准距离",
+          "condition": "cn_text_width > 4.2 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "文字宽度过小",
+          "description": "文字框宽度小于2.1倍基准距离",
+          "condition": "cn_text_width < 2.1 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "文字高度过大",
+          "description": "文字框高度超过0.6倍基准距离",
+          "condition": "cn_text_height > 0.6 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "文字高度过小",
+          "description": "文字框高度小于0.3倍基准距离",
+          "condition": "cn_text_height < 0.3 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "竖向间距过大",
+          "description": "logo下边界与文字上边界间距超过0.42倍基准距离",
+          "condition": "cn_text_top - logo_bottom > 0.42 * A",
+          "severity": "error"
+        },
+        {
+          "name": "竖向间距过小",
+          "description": "logo下边界与文字上边界间距小于0.14倍基准距离",
+          "condition": "cn_text_top - logo_bottom < 0.14 * A",
+          "severity": "error"
+        }
+      ]
+    },
+    {
+      "id": "R03-横式",
+      "brand_rule_id": "R03",
+      "brand_type": "不同组合形式品牌标识",
+      "layout_type": "横式",
+      "description": "标准中英文品牌标识，横式布局（logo在左，文字在右）",
+      "base_distance": {
+        "source": "x轴间距",
+        "formula": "logo_center到cn_text_center的x距离 / 2.95",
+        "variable": "A"
+      },
+      "element_mappings": {
+        "logo": "csg_logo检测框 (x1,y1,x2,y2)",
+        "cn_text": "OCR '中国南方电网' 文字框 (x1,y1,x2,y2)",
+        "en_text": "OCR 'CHINA SOUTHERN POWER GRID' 文字框 (x1,y1,x2,y2)"
+      },
+      "measurements": {
+        "A": "基准距离（反推）",
+        "logo_right": "logo检测框 x2",
+        "logo_top": "logo检测框 y1",
+        "logo_bottom": "logo检测框 y2",
+        "logo_height": "logo检测框高度 = y2 - y1",
+        "logo_width": "logo检测框宽度 = x2 - x1",
+        "text_leftmost": "min(cn_text.x1, en_text.x1) — 两个文字框中左端更靠左的坐标",
+        "cn_text_width": "'中国南方电网'文字框宽度 = x2 - x1",
+        "cn_text_top": "'中国南方电网'文字框 y1"
+      },
+      "checks": [
+        {
+          "name": "横向间距过窄",
+          "description": "logo右端已越过文字左端，两者交叉",
+          "condition": "logo_right > text_leftmost",
+          "severity": "error"
+        },
+        {
+          "name": "横向间距过宽",
+          "description": "logo右端与文字左端间距超过0.6倍基准距离",
+          "condition": "text_leftmost - logo_right > 0.6 * A",
+          "severity": "error"
+        },
+        {
+          "name": "中文字体过大",
+          "description": "'中国南方电网'文字宽度超过7.2倍基准距离",
+          "condition": "cn_text_width > 7.2 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "中文字体过小",
+          "description": "'中国南方电网'文字宽度小于2倍基准距离",
+          "condition": "cn_text_width < 2 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "间距过长",
+          "description": "A大于logo实际高度或1.3倍A大于logo实际宽度",
+          "condition": "A > logo_height OR 1.3 * A > logo_width",
+          "severity": "error"
+        },
+        {
+          "name": "文字位置偏下",
+          "description": "'中国南方电网'文字顶部低于logo底部",
+          "condition": "cn_text_top > logo_bottom",
+          "severity": "warning"
+        }
+      ]
+    },
+    {
+      "id": "R03-竖式",
+      "brand_rule_id": "R03",
+      "brand_type": "不同组合形式品牌标识",
+      "layout_type": "竖式",
+      "description": "标准中英文品牌标识，竖式布局（logo在上，文字在下）",
+      "base_distance": {
+        "source": "y轴间距",
+        "formula": "logo_center到cn_text_center的y距离 / 3.25",
+        "variable": "A"
+      },
+      "element_mappings": {
+        "logo": "csg_logo检测框 (x1,y1,x2,y2)",
+        "cn_text": "OCR '中国南方电网' 文字框 (x1,y1,x2,y2)",
+        "en_text": "OCR 'CHINA SOUTHERN POWER GRID' 文字框 (x1,y1,x2,y2)"
+      },
+      "measurements": {
+        "A": "基准距离（反推）",
+        "logo_bottom": "logo检测框 y2",
+        "logo_top": "logo检测框 y1",
+        "logo_height": "logo检测框高度 = y2 - y1",
+        "logo_width": "logo检测框宽度 = x2 - x1",
+        "cn_text_top": "'中国南方电网'文字框 y1",
+        "cn_text_width": "'中国南方电网'文字框宽度 = x2 - x1",
+        "cn_text_height": "'中国南方电网'文字框高度 = y2 - y1",
+        "text_leftmost": "所有文字框中最靠左的 x1",
+        "text_rightmost": "所有文字框中最靠右的 x2",
+        "text_width_all": "所有文字总宽度 = text_rightmost - text_leftmost"
+      },
+      "checks": [
+        {
+          "name": "间距过长",
+          "description": "A大于logo实际高度或1.3倍A大于logo实际宽度",
+          "condition": "A > logo_height OR 1.3 * A > logo_width",
+          "severity": "error"
+        },
+        {
+          "name": "竖向间距过小",
+          "description": "logo下边界低于文字上边界，两者交叉或贴得过紧",
+          "condition": "logo_bottom > cn_text_top",
+          "severity": "error"
+        },
+        {
+          "name": "竖向间距过大",
+          "description": "logo下边界与文字上边界间距超过0.8倍基准距离",
+          "condition": "cn_text_top - logo_bottom > 0.8 * A",
+          "severity": "error"
+        },
+        {
+          "name": "字体过小",
+          "description": "文字框高度小于2.5倍基准距离",
+          "condition": "cn_text_height < 2.5 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "字体过大",
+          "description": "文字框高度大于8.4倍基准距离",
+          "condition": "cn_text_height > 8.4 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "字体宽度异常",
+          "description": "所有文字的总宽度超过logo宽度的1.5倍",
+          "condition": "text_width_all > 1.5 * logo_width",
+          "severity": "warning"
+        }
+      ]
+    },
+    {
+      "id": "R03-中置式",
+      "brand_rule_id": "R03",
+      "brand_type": "不同组合形式品牌标识",
+      "layout_type": "中置式",
+      "description": "标准中英文品牌标识，中置式布局（logo在上居中，文字在下居中）",
+      "base_distance": {
+        "source": "y轴间距",
+        "formula": "logo_center到cn_text_center的y距离 / 0.752",
+        "variable": "A"
+      },
+      "element_mappings": {
+        "logo": "csg_logo检测框 (x1,y1,x2,y2)",
+        "cn_text": "OCR '中国南方电网' 文字框 (x1,y1,x2,y2)",
+        "en_text": "OCR 'CHINA SOUTHERN POWER GRID' 文字框 (x1,y1,x2,y2)"
+      },
+      "measurements": {
+        "A": "基准距离（反推）",
+        "logo_bottom": "logo检测框 y2",
+        "logo_top": "logo检测框 y1",
+        "logo_height": "logo检测框高度 = y2 - y1",
+        "logo_width": "logo检测框宽度 = x2 - x1",
+        "cn_text_top": "'中国南方电网'文字框 y1",
+        "cn_text_bottom": "'中国南方电网'文字框 y2",
+        "cn_text_width": "'中国南方电网'文字框宽度 = x2 - x1",
+        "cn_text_height": "'中国南方电网'文字框高度 = y2 - y1",
+        "text_leftmost": "所有文字框中最靠左的 x1",
+        "text_rightmost": "所有文字框中最靠右的 x2",
+        "text_width_all": "所有文字总宽度 = text_rightmost - text_leftmost"
+      },
+      "checks": [
+        {
+          "name": "间距过长",
+          "description": "A大于logo实际高度或1.3倍A大于logo实际宽度",
+          "condition": "A > logo_height OR 1.3 * A > logo_width",
+          "severity": "error"
+        },
+        {
+          "name": "竖向间距过大",
+          "description": "logo下边界与文字上边界间距超过0.4倍基准距离",
+          "condition": "cn_text_top - logo_bottom > 0.4 * A",
+          "severity": "error"
+        },
+        {
+          "name": "竖向间距过小",
+          "description": "logo下边界越过文字上边界，两者交叉",
+          "condition": "logo_bottom > cn_text_top",
+          "severity": "error"
+        },
+        {
+          "name": "文字宽度过大",
+          "description": "文字框宽度超过4.2倍基准距离",
+          "condition": "cn_text_width > 4.2 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "文字高度过大",
+          "description": "文字框高度超过2.4倍基准距离",
+          "condition": "cn_text_height > 2.4 * A",
+          "severity": "warning"
+        }
+      ]
+    },
+    {
+      "id": "R05-横式",
+      "brand_rule_id": "R05",
+      "brand_type": "品牌标识与品牌口号组合规范-中文",
+      "layout_type": "横式",
+      "description": "品牌标识+中文口号，横式布局",
+      "base_distance": {
+        "source": "x轴间距",
+        "formula": "logo_center到cn_text_center的x距离 / 2.95",
+        "variable": "A"
+      },
+      "element_mappings": {
+        "logo": "csg_logo检测框",
+        "cn_text": "OCR '中国南方电网'",
+        "en_text": "OCR 'CHINA SOUTHERN POWER GRID'",
+        "slogan_cn": "OCR '万家灯火南网情深'"
+      },
+      "measurements": {
+        "A": "基准距离（反推）",
+        "logo_right": "logo检测框 x2",
+        "logo_top": "logo检测框 y1",
+        "logo_bottom": "logo检测框 y2",
+        "logo_height": "logo检测框高度",
+        "logo_width": "logo检测框宽度",
+        "logo_center_y": "logo中心 y",
+        "cn_text_width": "'中国南方电网'文字框宽度",
+        "cn_text_top": "'中国南方电网'文字框 y1",
+        "cn_text_height": "'中国南方电网'文字框高度",
+        "text_leftmost": "中英文文字框最左端 x1",
+        "slogan_cn_center_y": "'万家灯火南网情深'中心 y",
+        "slogan_cn_width": "'万家灯火南网情深'文字框宽度",
+        "slogan_cn_height": "'万家灯火南网情深'文字框高度"
+      },
+      "checks": [
+        {
+          "name": "间距过长",
+          "description": "A大于logo实际高度或1.3倍A大于logo实际宽度",
+          "condition": "A > logo_height OR 1.3 * A > logo_width",
+          "severity": "error"
+        },
+        {
+          "name": "横向间距过窄",
+          "description": "logo右端已越过文字左端，交叉超过0.1倍基准距离",
+          "condition": "logo_right - text_leftmost > 0.1 * A",
+          "severity": "error"
+        },
+        {
+          "name": "横向间距过宽",
+          "description": "logo右端与文字左端间距超过0.3倍基准距离",
+          "condition": "text_leftmost - logo_right > 0.3 * A",
+          "severity": "error"
+        },
+        {
+          "name": "中文字体过大",
+          "description": "'中国南方电网'文字宽度超过5.5倍基准距离",
+          "condition": "cn_text_width > 5.5 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "中文字体过小",
+          "description": "'中国南方电网'文字宽度小于3倍基准距离",
+          "condition": "cn_text_width < 3 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "口号竖向间距过远",
+          "description": "'万家灯火南网情深'中心与logo中心y距超过1.25倍基准距离",
+          "condition": "slogan_cn_center_y - logo_center_y > 1.25 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "口号竖向间距过近",
+          "description": "'万家灯火南网情深'中心与logo中心y距小于0.8倍基准距离",
+          "condition": "slogan_cn_center_y - logo_center_y < 0.8 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "口号宽度过大",
+          "description": "'万家灯火南网情深'文字宽度超过7.2倍基准距离",
+          "condition": "slogan_cn_width > 7.2 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "口号高度过大",
+          "description": "'万家灯火南网情深'文字高度超过1倍基准距离",
+          "condition": "slogan_cn_height > 1 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "口号高度过小",
+          "description": "'万家灯火南网情深'文字高度小于0.25倍基准距离",
+          "condition": "slogan_cn_height < 0.25 * A",
+          "severity": "warning"
+        }
+      ]
+    },
+    {
+      "id": "R04-横式",
+      "brand_rule_id": "R04",
+      "brand_type": "品牌标识与品牌口号组合规范-英文",
+      "layout_type": "横式",
+      "description": "品牌标识+中英文口号，横式布局",
+      "base_distance": {
+        "source": "x轴间距",
+        "formula": "logo_center到cn_text_center的x距离 / 2.95",
+        "variable": "A"
+      },
+      "element_mappings": {
+        "logo": "csg_logo检测框",
+        "cn_text": "OCR '中国南方电网'",
+        "en_text": "OCR 'CHINA SOUTHERN POWER GRID'",
+        "slogan_cn": "OCR '万家灯火南网情深'",
+        "slogan_en": "OCR 'Light up Every Home, Warm up Every Heart'"
+      },
+      "measurements": {
+        "A": "基准距离（反推）",
+        "logo_right": "logo检测框 x2",
+        "logo_top": "logo检测框 y1",
+        "logo_bottom": "logo检测框 y2",
+        "logo_height": "logo检测框高度",
+        "logo_width": "logo检测框宽度",
+        "logo_center_y": "logo中心 y",
+        "cn_text_width": "'中国南方电网'文字框宽度",
+        "cn_text_top": "'中国南方电网'文字框 y1",
+        "cn_text_height": "'中国南方电网'文字框高度",
+        "text_leftmost": "中英文文字框最左端 x1",
+        "slogan_cn_center_y": "'万家灯火南网情深'中心 y",
+        "slogan_cn_width": "'万家灯火南网情深'文字框宽度",
+        "slogan_cn_height": "'万家灯火南网情深'文字框高度",
+        "slogan_en_center_y": "'Light up Every Home...'中心 y"
+      },
+      "checks": [
+        {
+          "name": "间距过长",
+          "description": "A大于logo实际高度或1.3倍A大于logo实际宽度",
+          "condition": "A > logo_height OR 1.3 * A > logo_width",
+          "severity": "error"
+        },
+        {
+          "name": "横向间距过窄",
+          "description": "logo右端已越过文字左端，交叉超过0.1倍基准距离",
+          "condition": "logo_right - text_leftmost > 0.1 * A",
+          "severity": "error"
+        },
+        {
+          "name": "横向间距过宽",
+          "description": "logo右端与文字左端间距超过0.3倍基准距离",
+          "condition": "text_leftmost - logo_right > 0.3 * A",
+          "severity": "error"
+        },
+        {
+          "name": "中文字体过大",
+          "description": "'中国南方电网'文字宽度超过5.5倍基准距离",
+          "condition": "cn_text_width > 5.5 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "中文字体过小",
+          "description": "'中国南方电网'文字宽度小于3倍基准距离",
+          "condition": "cn_text_width < 3 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "口号竖向间距过远",
+          "description": "'万家灯火南网情深'中心与logo中心y距超过1.25倍基准距离",
+          "condition": "slogan_cn_center_y - logo_center_y > 1.25 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "口号竖向间距过近",
+          "description": "'万家灯火南网情深'中心与logo中心y距小于0.8倍基准距离",
+          "condition": "slogan_cn_center_y - logo_center_y < 0.8 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "口号宽度过大",
+          "description": "'万家灯火南网情深'文字宽度超过7.2倍基准距离",
+          "condition": "slogan_cn_width > 7.2 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "口号高度过大",
+          "description": "'万家灯火南网情深'文字高度超过1倍基准距离",
+          "condition": "slogan_cn_height > 1 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "口号高度过小",
+          "description": "'万家灯火南网情深'文字高度小于0.25倍基准距离",
+          "condition": "slogan_cn_height < 0.25 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "英文口号间距过远",
+          "description": "英文口号与中文口号中心y距超过0.8倍基准距离",
+          "condition": "slogan_en_center_y - slogan_cn_center_y > 0.8 * A",
+          "severity": "warning"
+        }
+      ]
+    },
+    {
+      "id": "R06-横式",
+      "brand_rule_id": "R06",
+      "brand_type": "不同组合形式品牌标识（海外版）-简称",
+      "layout_type": "横式",
+      "description": "海外版CSG简称，横式布局",
+      "base_distance": {
+        "source": "x轴间距",
+        "formula": "logo_center到CSG中心的x距离 / 2.18",
+        "variable": "A"
+      },
+      "measurements": {
+        "A": "基准距离（反推）",
+        "logo_right": "logo检测框 x2",
+        "logo_height": "logo检测框高度",
+        "logo_width": "logo检测框宽度",
+        "csg_width": "CSG文字框宽度",
+        "csg_height": "CSG文字框高度",
+        "text_leftmost": "CSG文字框 x1"
+      },
+      "checks": [
+        {
+          "name": "间距过长",
+          "description": "A大于logo实际高度或1.3倍A大于logo实际宽度",
+          "condition": "A > logo_height OR 1.3 * A > logo_width",
+          "severity": "error"
+        },
+        {
+          "name": "CSG高度过大",
+          "description": "CSG文字高度超过1.1倍基准距离",
+          "condition": "cn_text_height > 1.1 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "CSG高度过小",
+          "description": "CSG文字高度小于0.55倍基准距离",
+          "condition": "cn_text_height < 0.55 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "CSG宽度过大",
+          "description": "CSG文字宽度超过3倍基准距离",
+          "condition": "cn_text_width > 3 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "CSG宽度过小",
+          "description": "CSG文字宽度小于1.9倍基准距离",
+          "condition": "cn_text_width < 1.9 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "横向间距过大",
+          "description": "logo右端与CSG左端间距超过0.37倍基准距离",
+          "condition": "text_leftmost - logo_right > 0.37 * A",
+          "severity": "error"
+        },
+        {
+          "name": "横向间距过小",
+          "description": "logo右端与CSG左端间距小于0.2倍基准距离",
+          "condition": "text_leftmost - logo_right < 0.2 * A",
+          "severity": "error"
+        }
+      ]
+    },
+    {
+      "id": "R06-中置式",
+      "brand_rule_id": "R06",
+      "brand_type": "不同组合形式品牌标识（海外版）-简称",
+      "layout_type": "中置式",
+      "description": "海外版CSG简称，中置式布局",
+      "base_distance": {
+        "source": "y轴间距",
+        "formula": "logo_center到CSG中心的y距离 / 0.865",
+        "variable": "A"
+      },
+      "measurements": {
+        "A": "基准距离（反推）",
+        "logo_bottom": "logo检测框 y2",
+        "logo_height": "logo检测框高度",
+        "logo_width": "logo检测框宽度",
+        "cn_text_top": "CSG文字框 y1",
+        "csg_width": "CSG文字框宽度",
+        "csg_height": "CSG文字框高度"
+      },
+      "checks": [
+        {
+          "name": "间距过长",
+          "description": "A大于logo实际高度或1.3倍A大于logo实际宽度",
+          "condition": "A > logo_height OR 1.3 * A > logo_width",
+          "severity": "error"
+        },
+        {
+          "name": "CSG宽度过大",
+          "description": "CSG文字宽度超过1.8倍基准距离",
+          "condition": "cn_text_width > 1.8 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "CSG宽度过小",
+          "description": "CSG文字宽度小于1.05倍基准距离",
+          "condition": "cn_text_width < 1.05 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "CSG高度过大",
+          "description": "CSG文字高度超过0.48倍基准距离",
+          "condition": "cn_text_height > 0.48 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "CSG高度过小",
+          "description": "CSG文字高度小于0.3倍基准距离",
+          "condition": "cn_text_height < 0.3 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "竖向间距过大",
+          "description": "logo下边界与CSG上边界间距超过0.18倍基准距离",
+          "condition": "cn_text_top - logo_bottom > 0.18 * A",
+          "severity": "error"
+        },
+        {
+          "name": "竖向间距过小",
+          "description": "logo下边界与CSG上边界间距小于0.1倍基准距离",
+          "condition": "cn_text_top - logo_bottom < 0.1 * A",
+          "severity": "error"
+        }
+      ]
+    },
+    {
+      "id": "R07-横式",
+      "brand_rule_id": "R07",
+      "brand_type": "不同组合形式品牌标识（海外版）-全称",
+      "layout_type": "横式",
+      "description": "海外版全称 CHINA SOUTHERN POWER GRID，横式布局",
+      "base_distance": {
+        "source": "x轴间距",
+        "formula": "logo_center到CHINA SOUTHERN中心的x距离 / 7.21",
+        "variable": "A"
+      },
+      "measurements": {
+        "A": "基准距离（反推）",
+        "logo_right": "logo检测框 x2",
+        "logo_top": "logo检测框 y1",
+        "logo_bottom": "logo检测框 y2",
+        "logo_height": "logo检测框高度",
+        "logo_width": "logo检测框宽度",
+        "cn_text_width": "CHINA SOUTHERN文字框宽度",
+        "cn_text_height": "CHINA SOUTHERN文字框高度",
+        "cn_text_top": "CHINA SOUTHERN文字框 y1",
+        "cn_text_bottom": "CHINA SOUTHERN文字框 y2",
+        "text_leftmost": "CHINA SOUTHERN文字框 x1"
+      },
+      "checks": [
+        {
+          "name": "间距过长",
+          "description": "A大于logo实际高度或1.3倍A大于logo实际宽度",
+          "condition": "A > logo_height OR 1.3 * A > logo_width",
+          "severity": "error"
+        },
+        {
+          "name": "英文宽度过大",
+          "description": "英文文字宽度超过15.5倍基准距离",
+          "condition": "cn_text_width > 15.5 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "英文宽度过小",
+          "description": "英文文字宽度小于10倍基准距离",
+          "condition": "cn_text_width < 10 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "英文高度过大",
+          "description": "英文文字高度超过0.66倍基准距离",
+          "condition": "cn_text_height > 0.66 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "英文高度过小",
+          "description": "英文文字高度小于0.4倍基准距离",
+          "condition": "cn_text_height < 0.4 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "横向间距过大",
+          "description": "logo右端与英文左端间距超过0.56倍基准距离",
+          "condition": "text_leftmost - logo_right > 0.56 * A",
+          "severity": "error"
+        },
+        {
+          "name": "横向间距过小",
+          "description": "logo右端与英文左端间距小于0.28倍基准距离",
+          "condition": "text_leftmost - logo_right < 0.28 * A",
+          "severity": "error"
+        },
+        {
+          "name": "英文位置偏低",
+          "description": "英文最下方应高于logo最下方",
+          "condition": "cn_text_bottom > logo_bottom",
+          "severity": "warning"
+        },
+        {
+          "name": "英文位置偏高",
+          "description": "英文最上方应低于logo最上方",
+          "condition": "cn_text_top < logo_top",
+          "severity": "warning"
+        }
+      ]
+    },
+    {
+      "id": "R07-竖式",
+      "brand_rule_id": "R07",
+      "brand_type": "不同组合形式品牌标识（海外版）-全称",
+      "layout_type": "竖式",
+      "description": "海外版全称 CHINA SOUTHERN POWER GRID，竖式布局",
+      "base_distance": {
+        "source": "y轴间距",
+        "formula": "logo_center到CHINA SOUTHERN中心的y距离 / 3.85",
+        "variable": "A"
+      },
+      "measurements": {
+        "A": "基准距离（反推）",
+        "logo_bottom": "logo检测框 y2",
+        "logo_height": "logo检测框高度",
+        "logo_width": "logo检测框宽度",
+        "cn_text_top": "CHINA SOUTHERN文字框 y1（多框取最上方）",
+        "cn_text_width": "CHINA SOUTHERN文字框宽度",
+        "cn_text_height": "CHINA SOUTHERN文字框高度"
+      },
+      "checks": [
+        {
+          "name": "间距过长",
+          "description": "A大于logo实际高度或1.3倍A大于logo实际宽度",
+          "condition": "A > logo_height OR 1.3 * A > logo_width",
+          "severity": "error"
+        },
+        {
+          "name": "竖向间距过大",
+          "description": "logo下边界与英文上边界间距超过0.46倍基准距离",
+          "condition": "cn_text_top - logo_bottom > 0.46 * A",
+          "severity": "error"
+        },
+        {
+          "name": "竖向间距过小",
+          "description": "logo下边界与英文上边界间距小于0.4倍基准距离",
+          "condition": "cn_text_top - logo_bottom < 0.4 * A",
+          "severity": "error"
+        },
+        {
+          "name": "英文高度过大",
+          "description": "英文文字高度超过7.5倍基准距离",
+          "condition": "cn_text_height > 7.5 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "英文高度过小",
+          "description": "英文文字高度小于4.8倍基准距离",
+          "condition": "cn_text_height < 4.8 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "英文宽度过大",
+          "description": "英文文字宽度超过1.3倍基准距离",
+          "condition": "cn_text_width > 1.3 * A",
+          "severity": "warning"
+        },
+        {
+          "name": "英文宽度过小",
+          "description": "英文文字宽度小于0.8倍基准距离",
+          "condition": "cn_text_width < 0.8 * A",
+          "severity": "warning"
+        }
+      ]
+    }
+  ]
+}

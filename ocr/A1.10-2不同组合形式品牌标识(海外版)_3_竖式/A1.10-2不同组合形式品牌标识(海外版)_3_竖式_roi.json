@@ -1,0 +1,47 @@
+{
+  "max_box": [
+    0,
+    0,
+    157,
+    857
+  ],
+  "layout_type": "竖式",
+  "best_logo": [
+    "csg_logo",
+    [
+      0,
+      0,
+      157,
+      135
+    ],
+    0.6807861924171448
+  ],
+  "roi_logo_bbox": [
+    0,
+    0,
+    157,
+    135
+  ],
+  "roi_elements": [
+    {
+      "text": "POWER GRID",
+      "bbox": [
+        8,
+        165,
+        79,
+        668
+      ],
+      "orientation": 90
+    },
+    {
+      "text": "CHINA SOUTHERN",
+      "bbox": [
+        80,
+        176,
+        144,
+        855
+      ],
+      "orientation": 90
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+    "input_path": "c:\\Users\\12908\\Desktop\\vi_project\\Paddle_OCR_Parsing\\input\\A1.10-1不同组合形式品牌标识(海外版)_3_中置式.png",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                0.07832050323486328,
+                0.8052471280097961,
+                500,
+                378.8568115234375
+            ],
+            "block_label": "image",
+            "block_content": "丰"
+        },
+        {
+            "block_bbox": [
+                0.0832676887512207,
+                445.6650085449219,
+                500,
+                586.8777465820312
+            ],
+            "block_label": "text",
+            "block_content": ""
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 1,
+                "label": "image",
+                "score": 0.6939318180084229,
+                "coordinate": [
+                    0.07832050323486328,
+                    0.8052471280097961,
+                    500,
+                    378.8568115234375
+                ]
+            },
+            {
+                "cls_id": 2,
+                "label": "text",
+                "score": 0.547356903553009,
+                "coordinate": [
+                    0.0832676887512207,
+                    445.6650085449219,
+                    500,
+                    586.8777465820312
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    280,
+                    105
+                ],
+                [
+                    461,
+                    105
+                ],
+                [
+                    461,
+                    359
+                ],
+                [
+                    280,
+                    359
+                ]
+            ],
+            [
+                [
+                    44,
+                    282
+                ],
+                [
+                    332,
+                    274
+                ],
+                [
+                    337,
+                    470
+                ],
+                [
+                    49,
+                    478
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "三",
+            "."
+        ],
+        "rec_scores": [
+            0.65523761510849,
+            0.25305038690567017
+        ],
+        "rec_polys": [
+            [
+                [
+                    280,
+                    105
+                ],
+                [
+                    461,
+                    105
+                ],
+                [
+                    461,
+                    359
+                ],
+                [
+                    280,
+                    359
+                ]
+            ],
+            [
+                [
+                    44,
+                    282
+                ],
+                [
+                    332,
+                    274
+                ],
+                [
+                    337,
+                    470
+                ],
+                [
+                    49,
+                    478
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                280,
+                105,
+                461,
+                359
+            ],
+            [
+                44,
+                274,
+                337,
+                478
+            ]
+        ]
+    }
+}

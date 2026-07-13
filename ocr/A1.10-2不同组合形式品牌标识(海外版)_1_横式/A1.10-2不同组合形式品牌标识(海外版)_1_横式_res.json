@@ -1,0 +1,250 @@
+{
+    "input_path": "c:\\Users\\12908\\Desktop\\vi_project\\Paddle_OCR_Parsing\\input\\A1.10-2不同组合形式品牌标识(海外版)_1_横式.png",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                217.3259735107422,
+                45.63381576538086,
+                1628.95361328125,
+                100.34294128417969
+            ],
+            "block_label": "text",
+            "block_content": "CHINA\nSOUTHERN\nPOWER\nGRID"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 2,
+                "label": "text",
+                "score": 0.7047926187515259,
+                "coordinate": [
+                    217.3259735107422,
+                    45.63381576538086,
+                    1628.95361328125,
+                    100.34294128417969
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    227,
+                    45
+                ],
+                [
+                    497,
+                    45
+                ],
+                [
+                    497,
+                    97
+                ],
+                [
+                    227,
+                    97
+                ]
+            ],
+            [
+                [
+                    533,
+                    46
+                ],
+                [
+                    1018,
+                    46
+                ],
+                [
+                    1018,
+                    97
+                ],
+                [
+                    533,
+                    97
+                ]
+            ],
+            [
+                [
+                    1055,
+                    45
+                ],
+                [
+                    1380,
+                    45
+                ],
+                [
+                    1380,
+                    95
+                ],
+                [
+                    1055,
+                    95
+                ]
+            ],
+            [
+                [
+                    1417,
+                    48
+                ],
+                [
+                    1622,
+                    48
+                ],
+                [
+                    1622,
+                    95
+                ],
+                [
+                    1417,
+                    95
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1,
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "CHINA",
+            "SOUTHERN",
+            "POWER",
+            "GRID"
+        ],
+        "rec_scores": [
+            0.9982279539108276,
+            0.998818576335907,
+            0.9969034194946289,
+            0.9871553182601929
+        ],
+        "rec_polys": [
+            [
+                [
+                    227,
+                    45
+                ],
+                [
+                    497,
+                    45
+                ],
+                [
+                    497,
+                    97
+                ],
+                [
+                    227,
+                    97
+                ]
+            ],
+            [
+                [
+                    533,
+                    46
+                ],
+                [
+                    1018,
+                    46
+                ],
+                [
+                    1018,
+                    97
+                ],
+                [
+                    533,
+                    97
+                ]
+            ],
+            [
+                [
+                    1055,
+                    45
+                ],
+                [
+                    1380,
+                    45
+                ],
+                [
+                    1380,
+                    95
+                ],
+                [
+                    1055,
+                    95
+                ]
+            ],
+            [
+                [
+                    1417,
+                    48
+                ],
+                [
+                    1622,
+                    48
+                ],
+                [
+                    1622,
+                    95
+                ],
+                [
+                    1417,
+                    95
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                227,
+                45,
+                497,
+                97
+            ],
+            [
+                533,
+                46,
+                1018,
+                97
+            ],
+            [
+                1055,
+                45,
+                1380,
+                95
+            ],
+            [
+                1417,
+                48,
+                1622,
+                95
+            ]
+        ]
+    }
+}

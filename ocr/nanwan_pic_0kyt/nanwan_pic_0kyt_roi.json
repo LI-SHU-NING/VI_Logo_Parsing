@@ -1,0 +1,57 @@
+{
+  "max_box": [
+    0,
+    187,
+    1347,
+    475
+  ],
+  "layout_type": "横式",
+  "best_logo": [
+    "csg_logo",
+    [
+      61,
+      201,
+      307,
+      393
+    ],
+    0.9745857119560242
+  ],
+  "roi_logo_bbox": [
+    61,
+    14,
+    307,
+    206
+  ],
+  "roi_elements": [
+    {
+      "text": "中国南方电网",
+      "bbox": [
+        329,
+        44,
+        928,
+        145
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "CHINA SOUTHER NPOWER GRID",
+      "bbox": [
+        333,
+        133,
+        923,
+        181
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "贵州电网有限责任公司黄果树分局",
+      "bbox": [
+        537,
+        204,
+        1286,
+        275
+      ],
+      "orientation": 0
+    }
+  ]
+}

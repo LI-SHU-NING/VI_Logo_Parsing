@@ -1,0 +1,33 @@
+============================================================
+品牌标识识别运行日志
+输入文件: nanwan_pic_0kyt
+运行时间: 2026-07-10 15:26:39
+运行状态: 成功
+消息: Success
+============================================================
+
+【模块耗时统计】
+  image_load               : 0.016 秒
+  blur_detection           : 0.052 秒
+  ocr                      : 67.465 秒
+  tuple_filtering          : 0.000 秒
+  logo_detection           : 0.367 秒
+  roi_processing           : 0.000 秒
+  roi_annotation           : 0.033 秒
+  brand_classification     : 0.000 秒
+  background_verification  : 16.498 秒
+  font_verification        : 1072.435 秒
+  total                    : 1156.871 秒
+
+【关键结果摘要】
+  模糊检测: is_clear=True, combined_score=11.265989745546474
+  OCR 文本数: 8
+  过滤后元组数: 3
+  Logo 检测数: 1
+  ROI 布局类型: 横式
+  品牌类型: 品牌标识组合使用规范 (R02)
+  背景校验: success=True, logo版本=反白版本, 符合要求=True, 干净=False
+  字体校验: success=True
+    chinese: 不适用 (置信度=不适用)
+    english_full: 不是 (置信度=高)
+    csg: 不适用 (置信度=不适用)

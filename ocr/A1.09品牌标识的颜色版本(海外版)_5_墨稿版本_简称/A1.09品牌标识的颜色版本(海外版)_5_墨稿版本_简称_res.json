@@ -1,0 +1,181 @@
+{
+    "input_path": "c:\\Users\\12908\\Desktop\\vi_project\\Paddle_OCR_Parsing\\input\\A1.09品牌标识的颜色版本(海外版)_5_墨稿版本_简称.png",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                61.820533752441406,
+                52.048065185546875,
+                216.9622802734375,
+                167.0377960205078
+            ],
+            "block_label": "text",
+            "block_content": "丰"
+        },
+        {
+            "block_bbox": [
+                255.38601684570312,
+                85.58519744873047,
+                527.2770385742188,
+                162.61093139648438
+            ],
+            "block_label": "text",
+            "block_content": "CSG"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 2,
+                "label": "text",
+                "score": 0.8262971043586731,
+                "coordinate": [
+                    255.38601684570312,
+                    85.58519744873047,
+                    527.2770385742188,
+                    162.61093139648438
+                ]
+            },
+            {
+                "cls_id": 2,
+                "label": "text",
+                "score": 0.8102642297744751,
+                "coordinate": [
+                    61.820533752441406,
+                    52.048065185546875,
+                    216.9622802734375,
+                    167.0377960205078
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    51,
+                    46
+                ],
+                [
+                    235,
+                    46
+                ],
+                [
+                    235,
+                    182
+                ],
+                [
+                    51,
+                    182
+                ]
+            ],
+            [
+                [
+                    248,
+                    77
+                ],
+                [
+                    529,
+                    81
+                ],
+                [
+                    528,
+                    171
+                ],
+                [
+                    247,
+                    168
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "丰",
+            "CSG"
+        ],
+        "rec_scores": [
+            0.9901813864707947,
+            0.9864415526390076
+        ],
+        "rec_polys": [
+            [
+                [
+                    51,
+                    46
+                ],
+                [
+                    235,
+                    46
+                ],
+                [
+                    235,
+                    182
+                ],
+                [
+                    51,
+                    182
+                ]
+            ],
+            [
+                [
+                    248,
+                    77
+                ],
+                [
+                    529,
+                    81
+                ],
+                [
+                    528,
+                    171
+                ],
+                [
+                    247,
+                    168
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                51,
+                46,
+                235,
+                182
+            ],
+            [
+                247,
+                77,
+                529,
+                171
+            ]
+        ]
+    }
+}

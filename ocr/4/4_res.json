@@ -1,0 +1,295 @@
+{
+    "input_path": "C:\\Users\\12908\\Desktop\\vi_project\\Paddle_OCR_Parsing\\input\\4.jpg",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": true,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                0,
+                6.801996231079102,
+                1079.4031982421875,
+                1158.1617431640625
+            ],
+            "block_label": "image",
+            "block_content": "2/2\n丰\n中国南方电网\nASO\nWUDGII"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 1,
+                "label": "image",
+                "score": 0.9808183908462524,
+                "coordinate": [
+                    0,
+                    6.801996231079102,
+                    1079.4031982421875,
+                    1158.1617431640625
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    979,
+                    4
+                ],
+                [
+                    1037,
+                    4
+                ],
+                [
+                    1037,
+                    41
+                ],
+                [
+                    979,
+                    41
+                ]
+            ],
+            [
+                [
+                    270,
+                    206
+                ],
+                [
+                    372,
+                    206
+                ],
+                [
+                    372,
+                    295
+                ],
+                [
+                    270,
+                    295
+                ]
+            ],
+            [
+                [
+                    261,
+                    295
+                ],
+                [
+                    379,
+                    301
+                ],
+                [
+                    351,
+                    810
+                ],
+                [
+                    233,
+                    803
+                ]
+            ],
+            [
+                [
+                    224,
+                    340
+                ],
+                [
+                    250,
+                    342
+                ],
+                [
+                    242,
+                    447
+                ],
+                [
+                    215,
+                    445
+                ]
+            ],
+            [
+                [
+                    203,
+                    635
+                ],
+                [
+                    233,
+                    637
+                ],
+                [
+                    225,
+                    772
+                ],
+                [
+                    195,
+                    770
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "2/2",
+            "丰",
+            "中国南方电网",
+            "ASO",
+            "WUDGII"
+        ],
+        "rec_scores": [
+            0.9919071197509766,
+            0.32588616013526917,
+            0.9696581363677979,
+            0.6376787424087524,
+            0.5323792695999146
+        ],
+        "rec_polys": [
+            [
+                [
+                    979,
+                    4
+                ],
+                [
+                    1037,
+                    4
+                ],
+                [
+                    1037,
+                    41
+                ],
+                [
+                    979,
+                    41
+                ]
+            ],
+            [
+                [
+                    270,
+                    206
+                ],
+                [
+                    372,
+                    206
+                ],
+                [
+                    372,
+                    295
+                ],
+                [
+                    270,
+                    295
+                ]
+            ],
+            [
+                [
+                    261,
+                    295
+                ],
+                [
+                    379,
+                    301
+                ],
+                [
+                    351,
+                    810
+                ],
+                [
+                    233,
+                    803
+                ]
+            ],
+            [
+                [
+                    224,
+                    340
+                ],
+                [
+                    250,
+                    342
+                ],
+                [
+                    242,
+                    447
+                ],
+                [
+                    215,
+                    445
+                ]
+            ],
+            [
+                [
+                    203,
+                    635
+                ],
+                [
+                    233,
+                    637
+                ],
+                [
+                    225,
+                    772
+                ],
+                [
+                    195,
+                    770
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                979,
+                4,
+                1037,
+                41
+            ],
+            [
+                270,
+                206,
+                372,
+                295
+            ],
+            [
+                233,
+                295,
+                379,
+                810
+            ],
+            [
+                215,
+                340,
+                250,
+                447
+            ],
+            [
+                195,
+                635,
+                233,
+                772
+            ]
+        ]
+    }
+}

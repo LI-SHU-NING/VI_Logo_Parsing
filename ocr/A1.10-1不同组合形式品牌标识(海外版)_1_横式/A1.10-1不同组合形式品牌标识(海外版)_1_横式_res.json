@@ -1,0 +1,115 @@
+{
+    "input_path": "c:\\Users\\12908\\Desktop\\vi_project\\Paddle_OCR_Parsing\\input\\A1.10-1不同组合形式品牌标识(海外版)_1_横式.png",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                496.63873291015625,
+                92.2621841430664,
+                1187,
+                296.3937072753906
+            ],
+            "block_label": "text",
+            "block_content": "CSG"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 2,
+                "label": "text",
+                "score": 0.7440205216407776,
+                "coordinate": [
+                    496.63873291015625,
+                    92.2621841430664,
+                    1187,
+                    296.3937072753906
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    482,
+                    84
+                ],
+                [
+                    1171,
+                    80
+                ],
+                [
+                    1173,
+                    277
+                ],
+                [
+                    483,
+                    281
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "CSG"
+        ],
+        "rec_scores": [
+            0.9972154498100281
+        ],
+        "rec_polys": [
+            [
+                [
+                    482,
+                    84
+                ],
+                [
+                    1171,
+                    80
+                ],
+                [
+                    1173,
+                    277
+                ],
+                [
+                    483,
+                    281
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                482,
+                80,
+                1173,
+                281
+            ]
+        ]
+    }
+}

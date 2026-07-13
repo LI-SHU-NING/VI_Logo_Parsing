@@ -1,0 +1,108 @@
+{
+    "description": "中国南方电网品牌标识公司名称规则库，用于通过OCR识别的文字关键字匹配品牌规范类型。分类逻辑基于1-vi_logo规则识别流程图。",
+    "version": "2.0",
+    "rules": [
+        {
+            "id": "R01",
+            "brand_type": "不同组合形式品牌标识-纯中文",
+            "description": "有'中国南方电网'中文，无英文文字",
+            "keywords": {
+                "required": ["中国南方电网"],
+                "excluded": ["CHINA SOUTHERN", "POWER GRID", "CSG"]
+            },
+            "layout_types": ["横式", "竖式", "中置式"],
+            "priority": 1
+        },
+        {
+            "id": "R02",
+            "brand_type": "品牌标识组合使用规范",
+            "description": "有'中国南方电网'中文且有英文，且使用了'公司'、'局'、'中心'等子公司关键字",
+            "keywords": {
+                "required": ["中国南方电网"],
+                "required_any": [
+                    "公司", "局", "中心", "研究院", "院", "所",
+                    "广东电网", "广西电网", "云南电网", "贵州电网",
+                    "海南电网", "深圳供电局", "广州供电局",
+                    "南网数字", "南网科研院", "南网物资", "南网资本",
+                    "鼎信信息", "鼎元信息", "南网储能", "南网科技"
+                ],
+                "excluded": []
+            },
+            "layout_types": ["横式", "竖式", "中置式"],
+            "priority": 2
+        },
+        {
+            "id": "R03",
+            "brand_type": "不同组合形式品牌标识",
+            "description": "有'中国南方电网'中文且有英文，无子公司关键字，无中文口号'万家灯火南网情深'",
+            "keywords": {
+                "required": ["中国南方电网"],
+                "excluded": ["公司", "局", "中心", "研究院", "万家灯火南网情深", "万家灯火", "南网情深"]
+            },
+            "layout_types": ["横式", "竖式", "中置式"],
+            "priority": 3
+        },
+        {
+            "id": "R04",
+            "brand_type": "品牌标识与品牌口号组合规范-英文",
+            "description": "有'中国南方电网'中文且有英文，无子公司关键字，有中文口号'万家灯火南网情深'，有英文口号'Light up Every Home, Warm up Every Heart'",
+            "keywords": {
+                "required": ["中国南方电网"],
+                "required_any": ["LIGHT UP EVERY HOME", "WARM UP EVERY HEART", "LIGHT UP", "WARM UP"],
+                "also_required_any": ["万家灯火南网情深", "万家灯火", "南网情深"],
+                "excluded": ["公司", "局", "中心", "研究院"]
+            },
+            "layout_types": ["横式", "竖式"],
+            "priority": 4
+        },
+        {
+            "id": "R05",
+            "brand_type": "品牌标识与品牌口号组合规范-中文",
+            "description": "有'中国南方电网'中文且有英文，无子公司关键字，有中文口号'万家灯火南网情深'，无英文口号",
+            "keywords": {
+                "required": ["中国南方电网"],
+                "required_any": ["万家灯火南网情深", "万家灯火", "南网情深"],
+                "excluded": ["公司", "局", "中心", "研究院", "LIGHT UP EVERY HOME", "WARM UP EVERY HEART", "LIGHT UP", "WARM UP"]
+            },
+            "layout_types": ["横式", "竖式"],
+            "priority": 5
+        },
+        {
+            "id": "R06",
+            "brand_type": "不同组合形式品牌标识（海外版）-简称",
+            "description": "无'中国南方电网'中文，有'CSG'英文简称",
+            "keywords": {
+                "required": ["CSG"],
+                "excluded": ["中国南方电网"]
+            },
+            "layout_types": ["横式", "中置式"],
+            "priority": 6
+        },
+        {
+            "id": "R07",
+            "brand_type": "不同组合形式品牌标识（海外版）-全称",
+            "description": "无'中国南方电网'中文，有'CHINA SOUTHERN POWER GRID'英文全称",
+            "keywords": {
+                "required": ["CHINA SOUTHERN", "POWER GRID"],
+                "excluded": ["中国南方电网", "CSG"]
+            },
+            "layout_types": ["横式", "竖式"],
+            "priority": 7
+        }
+    ],
+    "no_logo_text_result": {
+        "brand_type": "无logo文字描述",
+        "description": "未检测到任何品牌标识相关文字，需进一步判断是否有logo图形",
+        "layout_types": []
+    },
+    "no_logo_result": {
+        "brand_type": "品牌标识缺失",
+        "description": "无logo、无logo文字，直接返回提示",
+        "layout_types": []
+    },
+    "logo_alone_result": {
+        "brand_type": "Logo单独使用错误",
+        "description": "有logo但无logo文字，Logo不得单独使用",
+        "layout_types": []
+    }
+}

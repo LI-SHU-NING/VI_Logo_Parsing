@@ -1,0 +1,205 @@
+{
+    "input_path": "c:\\Users\\12908\\Desktop\\vi_project\\Paddle_OCR_Parsing\\input\\A1.04_品牌标识的颜色版本_1_标准彩色版本.png",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                82.64561462402344,
+                66.54025268554688,
+                1013.806640625,
+                234.2958526611328
+            ],
+            "block_label": "doc_title",
+            "block_content": "三\n中国南方电网\nCHINA SOUTHERN POWER GRID"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 11,
+                "label": "doc_title",
+                "score": 0.9287765026092529,
+                "coordinate": [
+                    82.64561462402344,
+                    66.54025268554688,
+                    1013.806640625,
+                    234.2958526611328
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    78,
+                    78
+                ],
+                [
+                    304,
+                    73
+                ],
+                [
+                    308,
+                    238
+                ],
+                [
+                    82,
+                    243
+                ]
+            ],
+            [
+                [
+                    346,
+                    103
+                ],
+                [
+                    1016,
+                    103
+                ],
+                [
+                    1016,
+                    198
+                ],
+                [
+                    346,
+                    198
+                ]
+            ],
+            [
+                [
+                    347,
+                    206
+                ],
+                [
+                    1014,
+                    207
+                ],
+                [
+                    1014,
+                    237
+                ],
+                [
+                    347,
+                    236
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "三",
+            "中国南方电网",
+            "CHINA SOUTHERN POWER GRID"
+        ],
+        "rec_scores": [
+            0.333391398191452,
+            0.9999139904975891,
+            0.9585022926330566
+        ],
+        "rec_polys": [
+            [
+                [
+                    78,
+                    78
+                ],
+                [
+                    304,
+                    73
+                ],
+                [
+                    308,
+                    238
+                ],
+                [
+                    82,
+                    243
+                ]
+            ],
+            [
+                [
+                    346,
+                    103
+                ],
+                [
+                    1016,
+                    103
+                ],
+                [
+                    1016,
+                    198
+                ],
+                [
+                    346,
+                    198
+                ]
+            ],
+            [
+                [
+                    347,
+                    206
+                ],
+                [
+                    1014,
+                    207
+                ],
+                [
+                    1014,
+                    237
+                ],
+                [
+                    347,
+                    236
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                78,
+                73,
+                308,
+                243
+            ],
+            [
+                346,
+                103,
+                1016,
+                198
+            ],
+            [
+                347,
+                206,
+                1014,
+                237
+            ]
+        ]
+    }
+}

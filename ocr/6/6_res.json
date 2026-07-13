@@ -1,0 +1,250 @@
+{
+    "input_path": "c:\\Users\\12908\\Desktop\\vi_project\\Paddle_OCR_Parsing\\input\\6.png",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                1.451648473739624,
+                0,
+                331.4232177734375,
+                334.90802001953125
+            ],
+            "block_label": "image",
+            "block_content": "中国南方电网\n深圳供电局有限公司\n福永供电分局急救包\n0303A144030600065011101009"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 1,
+                "label": "image",
+                "score": 0.8242524266242981,
+                "coordinate": [
+                    1.451648473739624,
+                    0,
+                    331.4232177734375,
+                    334.90802001953125
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    110,
+                    121
+                ],
+                [
+                    206,
+                    121
+                ],
+                [
+                    206,
+                    135
+                ],
+                [
+                    110,
+                    135
+                ]
+            ],
+            [
+                [
+                    70,
+                    168
+                ],
+                [
+                    247,
+                    168
+                ],
+                [
+                    247,
+                    185
+                ],
+                [
+                    70,
+                    185
+                ]
+            ],
+            [
+                [
+                    89,
+                    189
+                ],
+                [
+                    225,
+                    189
+                ],
+                [
+                    225,
+                    204
+                ],
+                [
+                    89,
+                    204
+                ]
+            ],
+            [
+                [
+                    55,
+                    206
+                ],
+                [
+                    258,
+                    206
+                ],
+                [
+                    258,
+                    220
+                ],
+                [
+                    55,
+                    220
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1,
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "中国南方电网",
+            "深圳供电局有限公司",
+            "福永供电分局急救包",
+            "0303A144030600065011101009"
+        ],
+        "rec_scores": [
+            0.999057948589325,
+            0.9980318546295166,
+            0.9991562962532043,
+            0.9985288381576538
+        ],
+        "rec_polys": [
+            [
+                [
+                    110,
+                    121
+                ],
+                [
+                    206,
+                    121
+                ],
+                [
+                    206,
+                    135
+                ],
+                [
+                    110,
+                    135
+                ]
+            ],
+            [
+                [
+                    70,
+                    168
+                ],
+                [
+                    247,
+                    168
+                ],
+                [
+                    247,
+                    185
+                ],
+                [
+                    70,
+                    185
+                ]
+            ],
+            [
+                [
+                    89,
+                    189
+                ],
+                [
+                    225,
+                    189
+                ],
+                [
+                    225,
+                    204
+                ],
+                [
+                    89,
+                    204
+                ]
+            ],
+            [
+                [
+                    55,
+                    206
+                ],
+                [
+                    258,
+                    206
+                ],
+                [
+                    258,
+                    220
+                ],
+                [
+                    55,
+                    220
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                110,
+                121,
+                206,
+                135
+            ],
+            [
+                70,
+                168,
+                247,
+                185
+            ],
+            [
+                89,
+                189,
+                225,
+                204
+            ],
+            [
+                55,
+                206,
+                258,
+                220
+            ]
+        ]
+    }
+}

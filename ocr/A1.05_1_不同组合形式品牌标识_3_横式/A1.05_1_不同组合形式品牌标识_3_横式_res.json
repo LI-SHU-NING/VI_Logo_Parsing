@@ -1,0 +1,213 @@
+{
+    "input_path": "C:\\Users\\12908\\Desktop\\vi_project\\logo_run_func\\input\\A1.05_1_不同组合形式品牌标识_3_横式.png",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                288,
+                32,
+                1051,
+                152
+            ],
+            "block_label": "other_text",
+            "block_content": "中国南方电网"
+        },
+        {
+            "block_bbox": [
+                786,
+                160,
+                920,
+                174
+            ],
+            "block_label": "other_text",
+            "block_content": ""
+        },
+        {
+            "block_bbox": [
+                476,
+                164,
+                564,
+                172
+            ],
+            "block_label": "other_text",
+            "block_content": "1"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": []
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    288,
+                    32
+                ],
+                [
+                    1051,
+                    32
+                ],
+                [
+                    1051,
+                    152
+                ],
+                [
+                    288,
+                    152
+                ]
+            ],
+            [
+                [
+                    476,
+                    164
+                ],
+                [
+                    564,
+                    164
+                ],
+                [
+                    564,
+                    172
+                ],
+                [
+                    476,
+                    172
+                ]
+            ],
+            [
+                [
+                    787,
+                    160
+                ],
+                [
+                    920,
+                    161
+                ],
+                [
+                    920,
+                    174
+                ],
+                [
+                    786,
+                    173
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "中国南方电网",
+            "1",
+            ""
+        ],
+        "rec_scores": [
+            0.9997503161430359,
+            0.5137573480606079,
+            0.0
+        ],
+        "rec_polys": [
+            [
+                [
+                    288,
+                    32
+                ],
+                [
+                    1051,
+                    32
+                ],
+                [
+                    1051,
+                    152
+                ],
+                [
+                    288,
+                    152
+                ]
+            ],
+            [
+                [
+                    476,
+                    164
+                ],
+                [
+                    564,
+                    164
+                ],
+                [
+                    564,
+                    172
+                ],
+                [
+                    476,
+                    172
+                ]
+            ],
+            [
+                [
+                    787,
+                    160
+                ],
+                [
+                    920,
+                    161
+                ],
+                [
+                    920,
+                    174
+                ],
+                [
+                    786,
+                    173
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                288,
+                32,
+                1051,
+                152
+            ],
+            [
+                476,
+                164,
+                564,
+                172
+            ],
+            [
+                786,
+                160,
+                920,
+                174
+            ]
+        ]
+    }
+}

@@ -1,0 +1,33 @@
+============================================================
+品牌标识识别运行日志
+输入文件: A1.10-2不同组合形式品牌标识(海外版)_3_竖式
+运行时间: 2026-07-09 18:11:37
+运行状态: 成功
+消息: Success
+============================================================
+
+【模块耗时统计】
+  image_load               : 0.002 秒
+  blur_detection           : 0.008 秒
+  ocr                      : 178.400 秒
+  tuple_filtering          : 0.000 秒
+  logo_detection           : 0.415 秒
+  roi_processing           : 0.000 秒
+  roi_annotation           : 0.006 秒
+  brand_classification     : 0.000 秒
+  background_verification  : 16.873 秒
+  font_verification        : 16.152 秒
+  total                    : 211.857 秒
+
+【关键结果摘要】
+  模糊检测: is_clear=True, combined_score=6.851566025275147
+  OCR 文本数: 2
+  过滤后元组数: 2
+  Logo 检测数: 1
+  ROI 布局类型: 竖式
+  品牌类型: 不同组合形式品牌标识（海外版）-全称 (R07)
+  背景校验: success=True, logo版本=标准彩色版本, 符合要求=True, 干净=True
+  字体校验: success=True
+    chinese: 不适用 (置信度=不适用)
+    english_full: 是 (置信度=高)
+    csg: 不适用 (置信度=不适用)

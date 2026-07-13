@@ -1,0 +1,180 @@
+{
+    "input_path": "c:\\Users\\12908\\Desktop\\vi_project\\Paddle_OCR_Parsing\\input\\广东电网公司电网规划研究中心1.png",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                156,
+                23,
+                551,
+                73
+            ],
+            "block_label": "other_text",
+            "block_content": "中国南方电网"
+        },
+        {
+            "block_bbox": [
+                157,
+                80,
+                551,
+                99
+            ],
+            "block_label": "other_text",
+            "block_content": "CHINA SOUTHERNPOWER GRID"
+        },
+        {
+            "block_bbox": [
+                154.1819610595703,
+                131.6752166748047,
+                793.6450805664062,
+                175.94664001464844
+            ],
+            "block_label": "doc_title",
+            "block_content": ""
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 11,
+                "label": "doc_title",
+                "score": 0.7600663304328918,
+                "coordinate": [
+                    154.1819610595703,
+                    131.6752166748047,
+                    793.6450805664062,
+                    175.94664001464844
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    156,
+                    23
+                ],
+                [
+                    551,
+                    23
+                ],
+                [
+                    551,
+                    73
+                ],
+                [
+                    156,
+                    73
+                ]
+            ],
+            [
+                [
+                    157,
+                    80
+                ],
+                [
+                    551,
+                    81
+                ],
+                [
+                    551,
+                    99
+                ],
+                [
+                    157,
+                    98
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "中国南方电网",
+            "CHINA SOUTHERNPOWER GRID"
+        ],
+        "rec_scores": [
+            0.9998741149902344,
+            0.9688253402709961
+        ],
+        "rec_polys": [
+            [
+                [
+                    156,
+                    23
+                ],
+                [
+                    551,
+                    23
+                ],
+                [
+                    551,
+                    73
+                ],
+                [
+                    156,
+                    73
+                ]
+            ],
+            [
+                [
+                    157,
+                    80
+                ],
+                [
+                    551,
+                    81
+                ],
+                [
+                    551,
+                    99
+                ],
+                [
+                    157,
+                    98
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                156,
+                23,
+                551,
+                73
+            ],
+            [
+                157,
+                80,
+                551,
+                99
+            ]
+        ]
+    }
+}

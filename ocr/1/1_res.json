@@ -1,0 +1,213 @@
+{
+    "input_path": "c:\\Users\\12908\\Desktop\\vi_project\\Paddle_OCR_Parsing\\input\\1.png",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                27,
+                25,
+                126,
+                99
+            ],
+            "block_label": "other_text",
+            "block_content": ""
+        },
+        {
+            "block_bbox": [
+                137,
+                42,
+                406,
+                78
+            ],
+            "block_label": "other_text",
+            "block_content": "中国南方电网"
+        },
+        {
+            "block_bbox": [
+                140,
+                81,
+                406,
+                94
+            ],
+            "block_label": "other_text",
+            "block_content": "CHINASOUTHERNPOWERGRID"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": []
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    27,
+                    25
+                ],
+                [
+                    126,
+                    25
+                ],
+                [
+                    126,
+                    99
+                ],
+                [
+                    27,
+                    99
+                ]
+            ],
+            [
+                [
+                    137,
+                    42
+                ],
+                [
+                    406,
+                    42
+                ],
+                [
+                    406,
+                    78
+                ],
+                [
+                    137,
+                    78
+                ]
+            ],
+            [
+                [
+                    140,
+                    81
+                ],
+                [
+                    406,
+                    81
+                ],
+                [
+                    406,
+                    94
+                ],
+                [
+                    140,
+                    94
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "",
+            "中国南方电网",
+            "CHINASOUTHERNPOWERGRID"
+        ],
+        "rec_scores": [
+            0.0,
+            0.9999168515205383,
+            0.9969732761383057
+        ],
+        "rec_polys": [
+            [
+                [
+                    27,
+                    25
+                ],
+                [
+                    126,
+                    25
+                ],
+                [
+                    126,
+                    99
+                ],
+                [
+                    27,
+                    99
+                ]
+            ],
+            [
+                [
+                    137,
+                    42
+                ],
+                [
+                    406,
+                    42
+                ],
+                [
+                    406,
+                    78
+                ],
+                [
+                    137,
+                    78
+                ]
+            ],
+            [
+                [
+                    140,
+                    81
+                ],
+                [
+                    406,
+                    81
+                ],
+                [
+                    406,
+                    94
+                ],
+                [
+                    140,
+                    94
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                27,
+                25,
+                126,
+                99
+            ],
+            [
+                137,
+                42,
+                406,
+                78
+            ],
+            [
+                140,
+                81,
+                406,
+                94
+            ]
+        ]
+    }
+}

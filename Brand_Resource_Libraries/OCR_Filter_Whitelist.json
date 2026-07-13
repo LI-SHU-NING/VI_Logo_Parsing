@@ -1,0 +1,26 @@
+{
+    "description": "OCR元组信息过滤白名单关键字库。文本中包含至少一个关键字才会被保留，否则过滤。",
+    "version": "1.0",
+    "filter_rules": {
+        "min_text_length": 2,
+        "empty_text_filter": true
+    },
+    "whitelist": {
+        "brand_core_names": {
+            "description": "品牌核心名称（含拆分后的单字，兼容OCR未合并的情况）",
+            "keywords": ["中国南方电网", "南方电网", "CHINA SOUTHERN", "POWER GRID", "CSG", "CHINA", "SOUTHERN", "POWER", "GRID"]
+        },
+        "subsidiary_keywords": {
+            "description": "子公司/机构名称关键字（含英文子公司常用词）",
+            "keywords": ["公司", "局", "中心", "研究院", "所", "分公司", "电", "电网", "供电", "输电", "发电", "储能", "财务", "数字", "物资", "资本", "信息", "科技", "SUPPLY", "LTD", "CO.", "FINANCE", "ENERGY", "STORAGE", "COMPANY", "LIMITED", "INC", "CORP", "GROUP", "HOLDINGS", "ELECTRIC", "INVESTMENT", "DEVELOPMENT", "TECHNOLOGY", "SERVICES", "MANAGEMENT", "CONSTRUCTION", "ENGINEERING", "MAINTENANCE", "OPERATION", "RESEARCH", "INSTITUTE", "CENTER", "BRANCH", "DIVISION", "BUREAU", "ADMINISTRATION", "TRANSMISSION", "DISTRIBUTION", "GENERATION", "SUBSTATION"]
+        },
+        "brand_slogans": {
+            "description": "品牌口号",
+            "keywords": ["万家灯火","南网情深","LIGHT UP","WARM UP","Heart","Home"]
+        },
+        "non_wholly_owned": {
+            "description": "非全资子公司标识",
+            "keywords": ["全资", "非全资"]
+        }
+    }
+}

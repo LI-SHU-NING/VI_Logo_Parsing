@@ -1,0 +1,67 @@
+{
+  "max_box": [
+    0,
+    77,
+    1328,
+    587
+  ],
+  "layout_type": "横式",
+  "best_logo": [
+    "csg_logo",
+    [
+      25,
+      101,
+      352,
+      344
+    ],
+    0.9273049831390381
+  ],
+  "roi_logo_bbox": [
+    25,
+    24,
+    352,
+    267
+  ],
+  "roi_elements": [
+    {
+      "text": "中国南方电网",
+      "bbox": [
+        390,
+        76,
+        1274,
+        207
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "CHINASOUTHERNPOWERGRID",
+      "bbox": [
+        398,
+        217,
+        1271,
+        254
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "万家灯火",
+      "bbox": [
+        50,
+        345,
+        609,
+        485
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "南网情深",
+      "bbox": [
+        738,
+        339,
+        1277,
+        487
+      ],
+      "orientation": 0
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+    "active_backend": "auto",
+    "backends": {
+        "ollama": {
+            "type": "ollama",
+            "enabled": true,
+            "priority": 1,
+            "base_url": "http://127.0.0.1:11434",
+            "llm_model": "deepseek-r1:32b",
+            "mllm_model": "qwen3-vl:8b",
+            "timeout": 7200
+        },
+        "remote_gateway": {
+            "type": "remote_gateway",
+            "enabled": true,
+            "priority": 2,
+            "base_url": "https://10.10.65.213:18300/ai-inference-gateway/predict",
+            "verify_ssl": false,
+            "timeout": 7200,
+            "llm": {
+                "model": "deepseekv3_int8",
+                "username": "",
+                "secret": "",
+                "component_code": ""
+            },
+            "mllm": {
+                "model": "qwen2_vl",
+                "username": "1001500015",
+                "secret": "295cd12df1664e6891930c1afeafced6",
+                "component_code": "04300011"
+            }
+        }
+    }
+}

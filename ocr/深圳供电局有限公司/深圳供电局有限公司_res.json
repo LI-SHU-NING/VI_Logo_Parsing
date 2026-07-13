@@ -1,0 +1,337 @@
+{
+    "input_path": "c:\\Users\\12908\\Desktop\\vi_project\\Paddle_OCR_Parsing\\input\\深圳供电局有限公司.png",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                42.72534942626953,
+                0.3549313545227051,
+                200.07424926757812,
+                119.57235717773438
+            ],
+            "block_label": "image",
+            "block_content": "主"
+        },
+        {
+            "block_bbox": [
+                0.019193530082702637,
+                136.76361083984375,
+                237.9891815185547,
+                185.40762329101562
+            ],
+            "block_label": "doc_title",
+            "block_content": "中国南方电网\nCHINA SOUTHERNPOWER GRID"
+        },
+        {
+            "block_bbox": [
+                39.52381134033203,
+                225.4071502685547,
+                190.87600708007812,
+                1005.8396606445312
+            ],
+            "block_label": "text",
+            "block_content": "SHENZHEN POWER SUPPLY CO., LTD.\n深圳供电局有限公司"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 11,
+                "label": "doc_title",
+                "score": 0.9225121736526489,
+                "coordinate": [
+                    0.019193530082702637,
+                    136.76361083984375,
+                    237.9891815185547,
+                    185.40762329101562
+                ]
+            },
+            {
+                "cls_id": 2,
+                "label": "text",
+                "score": 0.8528028726577759,
+                "coordinate": [
+                    39.52381134033203,
+                    225.4071502685547,
+                    190.87600708007812,
+                    1005.8396606445312
+                ]
+            },
+            {
+                "cls_id": 1,
+                "label": "image",
+                "score": 0.656467080116272,
+                "coordinate": [
+                    42.72534942626953,
+                    0.3549313545227051,
+                    200.07424926757812,
+                    119.57235717773438
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    53,
+                    10
+                ],
+                [
+                    205,
+                    23
+                ],
+                [
+                    197,
+                    124
+                ],
+                [
+                    45,
+                    111
+                ]
+            ],
+            [
+                [
+                    1,
+                    136
+                ],
+                [
+                    237,
+                    133
+                ],
+                [
+                    237,
+                    173
+                ],
+                [
+                    1,
+                    175
+                ]
+            ],
+            [
+                [
+                    2,
+                    172
+                ],
+                [
+                    236,
+                    173
+                ],
+                [
+                    236,
+                    187
+                ],
+                [
+                    2,
+                    186
+                ]
+            ],
+            [
+                [
+                    31,
+                    218
+                ],
+                [
+                    84,
+                    218
+                ],
+                [
+                    84,
+                    952
+                ],
+                [
+                    31,
+                    952
+                ]
+            ],
+            [
+                [
+                    95,
+                    225
+                ],
+                [
+                    195,
+                    225
+                ],
+                [
+                    195,
+                    1008
+                ],
+                [
+                    95,
+                    1008
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "主",
+            "中国南方电网",
+            "CHINA SOUTHERNPOWER GRID",
+            "SHENZHEN POWER SUPPLY CO., LTD.",
+            "深圳供电局有限公司"
+        ],
+        "rec_scores": [
+            0.4438107907772064,
+            0.9997056126594543,
+            0.9528676867485046,
+            0.9846378564834595,
+            0.9992175698280334
+        ],
+        "rec_polys": [
+            [
+                [
+                    53,
+                    10
+                ],
+                [
+                    205,
+                    23
+                ],
+                [
+                    197,
+                    124
+                ],
+                [
+                    45,
+                    111
+                ]
+            ],
+            [
+                [
+                    1,
+                    136
+                ],
+                [
+                    237,
+                    133
+                ],
+                [
+                    237,
+                    173
+                ],
+                [
+                    1,
+                    175
+                ]
+            ],
+            [
+                [
+                    2,
+                    172
+                ],
+                [
+                    236,
+                    173
+                ],
+                [
+                    236,
+                    187
+                ],
+                [
+                    2,
+                    186
+                ]
+            ],
+            [
+                [
+                    31,
+                    218
+                ],
+                [
+                    84,
+                    218
+                ],
+                [
+                    84,
+                    952
+                ],
+                [
+                    31,
+                    952
+                ]
+            ],
+            [
+                [
+                    95,
+                    225
+                ],
+                [
+                    195,
+                    225
+                ],
+                [
+                    195,
+                    1008
+                ],
+                [
+                    95,
+                    1008
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                45,
+                10,
+                205,
+                124
+            ],
+            [
+                1,
+                133,
+                237,
+                175
+            ],
+            [
+                2,
+                172,
+                236,
+                187
+            ],
+            [
+                31,
+                218,
+                84,
+                952
+            ],
+            [
+                95,
+                225,
+                195,
+                1008
+            ]
+        ]
+    }
+}

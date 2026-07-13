@@ -1,0 +1,136 @@
+{
+    "input_path": "c:\\Users\\12908\\Desktop\\vi_project\\Paddle_OCR_Parsing\\input\\A1.05_2不同组合形式品牌标识_2_中文_中置式.png",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                148.59365844726562,
+                0.47788864374160767,
+                411.7158203125,
+                198.81959533691406
+            ],
+            "block_label": "image",
+            "block_content": ""
+        },
+        {
+            "block_bbox": [
+                0.35219430923461914,
+                253.33685302734375,
+                559.9474487304688,
+                332.2156066894531
+            ],
+            "block_label": "doc_title",
+            "block_content": "中国南方电网"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 11,
+                "label": "doc_title",
+                "score": 0.9041050672531128,
+                "coordinate": [
+                    0.35219430923461914,
+                    253.33685302734375,
+                    559.9474487304688,
+                    332.2156066894531
+                ]
+            },
+            {
+                "cls_id": 1,
+                "label": "image",
+                "score": 0.7408469319343567,
+                "coordinate": [
+                    148.59365844726562,
+                    0.47788864374160767,
+                    411.7158203125,
+                    198.81959533691406
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    0,
+                    251
+                ],
+                [
+                    557,
+                    251
+                ],
+                [
+                    557,
+                    332
+                ],
+                [
+                    0,
+                    332
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "中国南方电网"
+        ],
+        "rec_scores": [
+            0.9993903636932373
+        ],
+        "rec_polys": [
+            [
+                [
+                    0,
+                    251
+                ],
+                [
+                    557,
+                    251
+                ],
+                [
+                    557,
+                    332
+                ],
+                [
+                    0,
+                    332
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                0,
+                251,
+                557,
+                332
+            ]
+        ]
+    }
+}

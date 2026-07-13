@@ -1,0 +1,205 @@
+{
+    "input_path": "C:\\Users\\12908\\Desktop\\vi_project\\Paddle_OCR_Parsing\\input\\test8.jpg",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": true,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                0,
+                0.1848214864730835,
+                606.5352172851562,
+                385
+            ],
+            "block_label": "image",
+            "block_content": "丰\n中国南方电网\nCHINA SOUTHERN POWER GRID"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 1,
+                "label": "image",
+                "score": 0.9809719324111938,
+                "coordinate": [
+                    0,
+                    0.1848214864730835,
+                    606.5352172851562,
+                    385
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    108,
+                    70
+                ],
+                [
+                    199,
+                    80
+                ],
+                [
+                    192,
+                    147
+                ],
+                [
+                    101,
+                    138
+                ]
+            ],
+            [
+                [
+                    208,
+                    95
+                ],
+                [
+                    436,
+                    124
+                ],
+                [
+                    431,
+                    161
+                ],
+                [
+                    203,
+                    132
+                ]
+            ],
+            [
+                [
+                    211,
+                    133
+                ],
+                [
+                    434,
+                    159
+                ],
+                [
+                    432,
+                    173
+                ],
+                [
+                    209,
+                    147
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "丰",
+            "中国南方电网",
+            "CHINA SOUTHERN POWER GRID"
+        ],
+        "rec_scores": [
+            0.9155331254005432,
+            0.9979114532470703,
+            0.9616638422012329
+        ],
+        "rec_polys": [
+            [
+                [
+                    108,
+                    70
+                ],
+                [
+                    199,
+                    80
+                ],
+                [
+                    192,
+                    147
+                ],
+                [
+                    101,
+                    138
+                ]
+            ],
+            [
+                [
+                    208,
+                    95
+                ],
+                [
+                    436,
+                    124
+                ],
+                [
+                    431,
+                    161
+                ],
+                [
+                    203,
+                    132
+                ]
+            ],
+            [
+                [
+                    211,
+                    133
+                ],
+                [
+                    434,
+                    159
+                ],
+                [
+                    432,
+                    173
+                ],
+                [
+                    209,
+                    147
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                101,
+                70,
+                199,
+                147
+            ],
+            [
+                203,
+                95,
+                436,
+                161
+            ],
+            [
+                209,
+                133,
+                434,
+                173
+            ]
+        ]
+    }
+}

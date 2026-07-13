@@ -1,0 +1,33 @@
+============================================================
+品牌标识识别运行日志
+输入文件: A1.06品牌标识与品牌口号组合规范_1
+运行时间: 2026-07-08 14:53:43
+运行状态: 成功
+消息: Success
+============================================================
+
+【模块耗时统计】
+  image_load               : 0.011 秒
+  blur_detection           : 0.042 秒
+  ocr                      : 84.824 秒
+  tuple_filtering          : 0.000 秒
+  logo_detection           : 0.396 秒
+  roi_processing           : 0.001 秒
+  roi_annotation           : 0.031 秒
+  brand_classification     : 0.000 秒
+  background_verification  : 17.337 秒
+  font_verification        : 25.163 秒
+  total                    : 127.805 秒
+
+【关键结果摘要】
+  模糊检测: is_clear=True, combined_score=3.839955955629947
+  OCR 文本数: 5
+  过滤后元组数: 4
+  Logo 检测数: 1
+  ROI 布局类型: 横式
+  品牌类型: 品牌标识与品牌口号组合规范-中文 (R05)
+  背景校验: success=True, logo版本=反白版本, 符合要求=True, 干净=True
+  字体校验: success=True
+    csg: 是 (置信度=高)
+    english_full: 是 (置信度=高)
+    chinese: 是 (置信度=高)

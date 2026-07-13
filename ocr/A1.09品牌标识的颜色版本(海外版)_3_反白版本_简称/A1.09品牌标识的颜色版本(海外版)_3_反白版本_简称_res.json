@@ -1,0 +1,158 @@
+{
+    "input_path": "c:\\Users\\12908\\Desktop\\vi_project\\Paddle_OCR_Parsing\\input\\A1.09品牌标识的颜色版本(海外版)_3_反白版本_简称.png",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                52,
+                45,
+                233,
+                182
+            ],
+            "block_label": "other_text",
+            "block_content": "丰"
+        },
+        {
+            "block_bbox": [
+                250,
+                80,
+                527,
+                166
+            ],
+            "block_label": "other_text",
+            "block_content": "CSG"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": []
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    52,
+                    45
+                ],
+                [
+                    233,
+                    45
+                ],
+                [
+                    233,
+                    182
+                ],
+                [
+                    52,
+                    182
+                ]
+            ],
+            [
+                [
+                    251,
+                    80
+                ],
+                [
+                    527,
+                    82
+                ],
+                [
+                    526,
+                    166
+                ],
+                [
+                    250,
+                    164
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "丰",
+            "CSG"
+        ],
+        "rec_scores": [
+            0.9923310279846191,
+            0.9862286448478699
+        ],
+        "rec_polys": [
+            [
+                [
+                    52,
+                    45
+                ],
+                [
+                    233,
+                    45
+                ],
+                [
+                    233,
+                    182
+                ],
+                [
+                    52,
+                    182
+                ]
+            ],
+            [
+                [
+                    251,
+                    80
+                ],
+                [
+                    527,
+                    82
+                ],
+                [
+                    526,
+                    166
+                ],
+                [
+                    250,
+                    164
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                52,
+                45,
+                233,
+                182
+            ],
+            [
+                250,
+                80,
+                527,
+                166
+            ]
+        ]
+    }
+}

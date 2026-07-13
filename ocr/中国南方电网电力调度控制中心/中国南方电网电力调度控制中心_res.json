@@ -1,0 +1,225 @@
+{
+    "input_path": "c:\\Users\\12908\\Desktop\\vi_project\\Paddle_OCR_Parsing\\input\\中国南方电网电力调度控制中心.png",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                201,
+                23,
+                737,
+                105
+            ],
+            "block_label": "other_text",
+            "block_content": "中国南方电网"
+        },
+        {
+            "block_bbox": [
+                209,
+                109,
+                734,
+                134
+            ],
+            "block_label": "other_text",
+            "block_content": "CHINA SOUTHERN POWER GRID"
+        },
+        {
+            "block_bbox": [
+                214.14488220214844,
+                185.468505859375,
+                1020.861328125,
+                241.7957763671875
+            ],
+            "block_label": "doc_title",
+            "block_content": "中国南方电网电力调度控制中心"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 11,
+                "label": "doc_title",
+                "score": 0.8993762135505676,
+                "coordinate": [
+                    214.14488220214844,
+                    185.468505859375,
+                    1020.861328125,
+                    241.7957763671875
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    201,
+                    23
+                ],
+                [
+                    737,
+                    23
+                ],
+                [
+                    737,
+                    105
+                ],
+                [
+                    201,
+                    105
+                ]
+            ],
+            [
+                [
+                    209,
+                    109
+                ],
+                [
+                    734,
+                    109
+                ],
+                [
+                    734,
+                    134
+                ],
+                [
+                    209,
+                    134
+                ]
+            ],
+            [
+                [
+                    215,
+                    188
+                ],
+                [
+                    1013,
+                    186
+                ],
+                [
+                    1013,
+                    233
+                ],
+                [
+                    215,
+                    236
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "中国南方电网",
+            "CHINA SOUTHERN POWER GRID",
+            "中国南方电网电力调度控制中心"
+        ],
+        "rec_scores": [
+            0.9999525547027588,
+            0.9814823269844055,
+            0.9993888139724731
+        ],
+        "rec_polys": [
+            [
+                [
+                    201,
+                    23
+                ],
+                [
+                    737,
+                    23
+                ],
+                [
+                    737,
+                    105
+                ],
+                [
+                    201,
+                    105
+                ]
+            ],
+            [
+                [
+                    209,
+                    109
+                ],
+                [
+                    734,
+                    109
+                ],
+                [
+                    734,
+                    134
+                ],
+                [
+                    209,
+                    134
+                ]
+            ],
+            [
+                [
+                    215,
+                    188
+                ],
+                [
+                    1013,
+                    186
+                ],
+                [
+                    1013,
+                    233
+                ],
+                [
+                    215,
+                    236
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                201,
+                23,
+                737,
+                105
+            ],
+            [
+                209,
+                109,
+                734,
+                134
+            ],
+            [
+                215,
+                186,
+                1013,
+                236
+            ]
+        ]
+    }
+}

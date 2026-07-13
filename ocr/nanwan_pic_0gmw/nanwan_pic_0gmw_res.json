@@ -1,0 +1,250 @@
+{
+    "input_path": "C:\\Users\\12908\\Desktop\\vi_project\\logo_run_func\\input\\书宁整理的颜色测试图image\\bad\\nanwan_pic_0gmw.jpeg",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                0,
+                0.7504463195800781,
+                2559.321533203125,
+                1919.696044921875
+            ],
+            "block_label": "image",
+            "block_content": "中国南方电网\n价值链整合者一\n平台型企业\n国家队地位"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 1,
+                "label": "image",
+                "score": 0.9882998466491699,
+                "coordinate": [
+                    0,
+                    0.7504463195800781,
+                    2559.321533203125,
+                    1919.696044921875
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    622,
+                    381
+                ],
+                [
+                    894,
+                    390
+                ],
+                [
+                    892,
+                    437
+                ],
+                [
+                    621,
+                    428
+                ]
+            ],
+            [
+                [
+                    1484,
+                    477
+                ],
+                [
+                    1612,
+                    473
+                ],
+                [
+                    1636,
+                    1282
+                ],
+                [
+                    1508,
+                    1286
+                ]
+            ],
+            [
+                [
+                    1645,
+                    487
+                ],
+                [
+                    1738,
+                    485
+                ],
+                [
+                    1747,
+                    986
+                ],
+                [
+                    1654,
+                    988
+                ]
+            ],
+            [
+                [
+                    1775,
+                    487
+                ],
+                [
+                    1880,
+                    485
+                ],
+                [
+                    1889,
+                    991
+                ],
+                [
+                    1784,
+                    993
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1,
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "中国南方电网",
+            "价值链整合者一",
+            "平台型企业",
+            "国家队地位"
+        ],
+        "rec_scores": [
+            0.9967899322509766,
+            0.8514962792396545,
+            0.9892417788505554,
+            0.9886420369148254
+        ],
+        "rec_polys": [
+            [
+                [
+                    622,
+                    381
+                ],
+                [
+                    894,
+                    390
+                ],
+                [
+                    892,
+                    437
+                ],
+                [
+                    621,
+                    428
+                ]
+            ],
+            [
+                [
+                    1484,
+                    477
+                ],
+                [
+                    1612,
+                    473
+                ],
+                [
+                    1636,
+                    1282
+                ],
+                [
+                    1508,
+                    1286
+                ]
+            ],
+            [
+                [
+                    1645,
+                    487
+                ],
+                [
+                    1738,
+                    485
+                ],
+                [
+                    1747,
+                    986
+                ],
+                [
+                    1654,
+                    988
+                ]
+            ],
+            [
+                [
+                    1775,
+                    487
+                ],
+                [
+                    1880,
+                    485
+                ],
+                [
+                    1889,
+                    991
+                ],
+                [
+                    1784,
+                    993
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                621,
+                381,
+                894,
+                437
+            ],
+            [
+                1484,
+                473,
+                1636,
+                1286
+            ],
+            [
+                1645,
+                485,
+                1747,
+                988
+            ],
+            [
+                1775,
+                485,
+                1889,
+                993
+            ]
+        ]
+    }
+}

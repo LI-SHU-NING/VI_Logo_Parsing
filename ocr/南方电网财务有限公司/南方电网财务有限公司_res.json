@@ -1,0 +1,337 @@
+{
+    "input_path": "C:\\Users\\12908\\Desktop\\vi_project\\Paddle_OCR_Parsing\\input\\南方电网财务有限公司.png",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                42.64653396606445,
+                0.4204772412776947,
+                200.21726989746094,
+                118.40532684326172
+            ],
+            "block_label": "image",
+            "block_content": "三"
+        },
+        {
+            "block_bbox": [
+                0,
+                137.06304931640625,
+                237.95071411132812,
+                185.78892517089844
+            ],
+            "block_label": "doc_title",
+            "block_content": "中国南方电网\nCHINA SOUTHERN POWER GRID"
+        },
+        {
+            "block_bbox": [
+                53.922607421875,
+                225.42237854003906,
+                180.65330505371094,
+                1098.54541015625
+            ],
+            "block_label": "seal",
+            "block_content": ""
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 11,
+                "label": "doc_title",
+                "score": 0.8836529850959778,
+                "coordinate": [
+                    0,
+                    137.06304931640625,
+                    237.95071411132812,
+                    185.78892517089844
+                ]
+            },
+            {
+                "cls_id": 16,
+                "label": "seal",
+                "score": 0.6204320788383484,
+                "coordinate": [
+                    53.922607421875,
+                    225.42237854003906,
+                    180.65330505371094,
+                    1098.54541015625
+                ]
+            },
+            {
+                "cls_id": 1,
+                "label": "image",
+                "score": 0.5515724420547485,
+                "coordinate": [
+                    42.64653396606445,
+                    0.4204772412776947,
+                    200.21726989746094,
+                    118.40532684326172
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    35,
+                    1
+                ],
+                [
+                    211,
+                    1
+                ],
+                [
+                    211,
+                    127
+                ],
+                [
+                    35,
+                    127
+                ]
+            ],
+            [
+                [
+                    0,
+                    133
+                ],
+                [
+                    237,
+                    137
+                ],
+                [
+                    236,
+                    176
+                ],
+                [
+                    0,
+                    172
+                ]
+            ],
+            [
+                [
+                    2,
+                    175
+                ],
+                [
+                    236,
+                    175
+                ],
+                [
+                    236,
+                    187
+                ],
+                [
+                    2,
+                    187
+                ]
+            ],
+            [
+                [
+                    46,
+                    226
+                ],
+                [
+                    88,
+                    226
+                ],
+                [
+                    88,
+                    1093
+                ],
+                [
+                    46,
+                    1093
+                ]
+            ],
+            [
+                [
+                    99,
+                    223
+                ],
+                [
+                    178,
+                    223
+                ],
+                [
+                    178,
+                    1092
+                ],
+                [
+                    99,
+                    1092
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "三",
+            "中国南方电网",
+            "CHINA SOUTHERN POWER GRID",
+            "CHINA SOUTHERN POWER GRID FINANCE CO., LTD",
+            "南方电网财务有限公司"
+        ],
+        "rec_scores": [
+            0.4470156133174896,
+            0.9987680912017822,
+            0.9301967620849609,
+            0.9926440715789795,
+            0.9983941912651062
+        ],
+        "rec_polys": [
+            [
+                [
+                    35,
+                    1
+                ],
+                [
+                    211,
+                    1
+                ],
+                [
+                    211,
+                    127
+                ],
+                [
+                    35,
+                    127
+                ]
+            ],
+            [
+                [
+                    0,
+                    133
+                ],
+                [
+                    237,
+                    137
+                ],
+                [
+                    236,
+                    176
+                ],
+                [
+                    0,
+                    172
+                ]
+            ],
+            [
+                [
+                    2,
+                    175
+                ],
+                [
+                    236,
+                    175
+                ],
+                [
+                    236,
+                    187
+                ],
+                [
+                    2,
+                    187
+                ]
+            ],
+            [
+                [
+                    46,
+                    226
+                ],
+                [
+                    88,
+                    226
+                ],
+                [
+                    88,
+                    1093
+                ],
+                [
+                    46,
+                    1093
+                ]
+            ],
+            [
+                [
+                    99,
+                    223
+                ],
+                [
+                    178,
+                    223
+                ],
+                [
+                    178,
+                    1092
+                ],
+                [
+                    99,
+                    1092
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                35,
+                1,
+                211,
+                127
+            ],
+            [
+                0,
+                133,
+                237,
+                176
+            ],
+            [
+                2,
+                175,
+                236,
+                187
+            ],
+            [
+                46,
+                226,
+                88,
+                1093
+            ],
+            [
+                99,
+                223,
+                178,
+                1092
+            ]
+        ]
+    }
+}

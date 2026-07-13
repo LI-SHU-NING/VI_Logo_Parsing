@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python fun.py)",
+      "Bash(conda run *)",
+      "Bash(PYTHONIOENCODING=utf-8 conda run -n python_11 --no-banner python fun.py)",
+      "Bash(PYTHONIOENCODING=utf-8 conda run -n python_11 python fun.py)"
+    ]
+  }
+}

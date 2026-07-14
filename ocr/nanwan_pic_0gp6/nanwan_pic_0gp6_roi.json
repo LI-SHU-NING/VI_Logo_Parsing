@@ -1,0 +1,57 @@
+{
+  "max_box": [
+    141,
+    581,
+    882,
+    944
+  ],
+  "layout_type": "横式",
+  "best_logo": [
+    "csg_logo",
+    [
+      175,
+      598,
+      399,
+      824
+    ],
+    0.8821682333946228
+  ],
+  "roi_logo_bbox": [
+    34,
+    17,
+    258,
+    243
+  ],
+  "roi_elements": [
+    {
+      "text": "中国南方电网",
+      "bbox": [
+        259,
+        84,
+        708,
+        226
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "CHINA SOUTHERN POWERGRD",
+      "bbox": [
+        269,
+        196,
+        705,
+        254
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "城区营业厅",
+      "bbox": [
+        200,
+        265,
+        633,
+        347
+      ],
+      "orientation": 0
+    }
+  ]
+}

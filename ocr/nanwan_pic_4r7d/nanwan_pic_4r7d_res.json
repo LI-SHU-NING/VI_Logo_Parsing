@@ -1,0 +1,271 @@
+{
+    "input_path": "D:\\信安实习\\VI_Logo_Parsing\\input\\书宁整理的颜色测试图image\\good\\nanwan_pic_4r7d.png",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                96.49799346923828,
+                92.98641967773438,
+                512.4939575195312,
+                184.4911346435547
+            ],
+            "block_label": "text",
+            "block_content": "中国南方电网\nCHINASOUTHERNPOWERGRID"
+        },
+        {
+            "block_bbox": [
+                139.38246154785156,
+                303.1964416503906,
+                1102.6220703125,
+                481.62530517578125
+            ],
+            "block_label": "paragraph_title",
+            "block_content": "南方电网财务有限公司云南分公司\nSOUTHERNPOWER GRID FINANCECO.,LTD YUNNANBRANCH"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 0,
+                "label": "paragraph_title",
+                "score": 0.8898158073425293,
+                "coordinate": [
+                    139.38246154785156,
+                    303.1964416503906,
+                    1102.6220703125,
+                    481.62530517578125
+                ]
+            },
+            {
+                "cls_id": 2,
+                "label": "text",
+                "score": 0.6177977323532104,
+                "coordinate": [
+                    96.49799346923828,
+                    92.98641967773438,
+                    512.4939575195312,
+                    184.4911346435547
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    233,
+                    111
+                ],
+                [
+                    510,
+                    128
+                ],
+                [
+                    507,
+                    171
+                ],
+                [
+                    231,
+                    154
+                ]
+            ],
+            [
+                [
+                    233,
+                    157
+                ],
+                [
+                    509,
+                    169
+                ],
+                [
+                    509,
+                    185
+                ],
+                [
+                    233,
+                    173
+                ]
+            ],
+            [
+                [
+                    134,
+                    319
+                ],
+                [
+                    1104,
+                    281
+                ],
+                [
+                    1108,
+                    381
+                ],
+                [
+                    137,
+                    419
+                ]
+            ],
+            [
+                [
+                    145,
+                    441
+                ],
+                [
+                    1102,
+                    361
+                ],
+                [
+                    1105,
+                    401
+                ],
+                [
+                    148,
+                    482
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1,
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "中国南方电网",
+            "CHINASOUTHERNPOWERGRID",
+            "南方电网财务有限公司云南分公司",
+            "SOUTHERNPOWER GRID FINANCECO.,LTD YUNNANBRANCH"
+        ],
+        "rec_scores": [
+            0.9994322657585144,
+            0.9952003955841064,
+            0.9979820847511292,
+            0.9601764678955078
+        ],
+        "rec_polys": [
+            [
+                [
+                    233,
+                    111
+                ],
+                [
+                    510,
+                    128
+                ],
+                [
+                    507,
+                    171
+                ],
+                [
+                    231,
+                    154
+                ]
+            ],
+            [
+                [
+                    233,
+                    157
+                ],
+                [
+                    509,
+                    169
+                ],
+                [
+                    509,
+                    185
+                ],
+                [
+                    233,
+                    173
+                ]
+            ],
+            [
+                [
+                    134,
+                    319
+                ],
+                [
+                    1104,
+                    281
+                ],
+                [
+                    1108,
+                    381
+                ],
+                [
+                    137,
+                    419
+                ]
+            ],
+            [
+                [
+                    145,
+                    441
+                ],
+                [
+                    1102,
+                    361
+                ],
+                [
+                    1105,
+                    401
+                ],
+                [
+                    148,
+                    482
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                231,
+                111,
+                510,
+                171
+            ],
+            [
+                233,
+                157,
+                509,
+                185
+            ],
+            [
+                134,
+                281,
+                1108,
+                419
+            ],
+            [
+                145,
+                361,
+                1105,
+                482
+            ]
+        ]
+    }
+}

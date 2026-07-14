@@ -1,0 +1,160 @@
+{
+    "input_path": "D:\\信安实习\\VI_Logo_Parsing\\input\\书宁整理的颜色测试图image\\good\\nanwan_pic_0pkv.jpeg",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                0,
+                1.5238380432128906,
+                2558.70703125,
+                1920
+            ],
+            "block_label": "image",
+            "block_content": "中国南方电网\nCHINA SOUTHERN POWER GRID"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 1,
+                "label": "image",
+                "score": 0.9853095412254333,
+                "coordinate": [
+                    0,
+                    1.5238380432128906,
+                    2558.70703125,
+                    1920
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    630,
+                    701
+                ],
+                [
+                    1048,
+                    707
+                ],
+                [
+                    1047,
+                    780
+                ],
+                [
+                    629,
+                    774
+                ]
+            ],
+            [
+                [
+                    632,
+                    772
+                ],
+                [
+                    1043,
+                    777
+                ],
+                [
+                    1042,
+                    807
+                ],
+                [
+                    632,
+                    802
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "中国南方电网",
+            "CHINA SOUTHERN POWER GRID"
+        ],
+        "rec_scores": [
+            0.9974411129951477,
+            0.9737809896469116
+        ],
+        "rec_polys": [
+            [
+                [
+                    630,
+                    701
+                ],
+                [
+                    1048,
+                    707
+                ],
+                [
+                    1047,
+                    780
+                ],
+                [
+                    629,
+                    774
+                ]
+            ],
+            [
+                [
+                    632,
+                    772
+                ],
+                [
+                    1043,
+                    777
+                ],
+                [
+                    1042,
+                    807
+                ],
+                [
+                    632,
+                    802
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                629,
+                701,
+                1048,
+                780
+            ],
+            [
+                632,
+                772,
+                1043,
+                807
+            ]
+        ]
+    }
+}

@@ -1,0 +1,74 @@
+{
+  "max_box": [
+    748,
+    907,
+    3164,
+    2510
+  ],
+  "layout_type": "中置式",
+  "best_logo": [
+    "csg_logo",
+    [
+      1541,
+      980,
+      2382,
+      1570
+    ],
+    0.9546520113945007
+  ],
+  "roi_logo_bbox": [
+    793,
+    73,
+    1634,
+    663
+  ],
+  "roi_elements": [
+    {
+      "text": "中国南方电网",
+      "bbox": [
+        689,
+        644,
+        1786,
+        815
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "CHINA SOUTHERN POWER GRID",
+      "bbox": [
+        694,
+        819,
+        1777,
+        883
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "广西电网百色田东供电局",
+      "bbox": [
+        110,
+        1031,
+        2307,
+        1250
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "义圩供电所",
+      "bbox": [
+        518,
+        1295,
+        1915,
+        1531
+      ],
+      "orientation": 0
+    }
+  ],
+  "blur_detection": {
+    "is_clear": true,
+    "combined_score": 1.34,
+    "laplacian_var": 1906.38,
+    "sobel_var": 6408.81,
+    "threshold": 0.4
+  }
+}

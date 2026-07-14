@@ -1,0 +1,74 @@
+{
+  "max_box": [
+    152,
+    551,
+    1413,
+    760
+  ],
+  "layout_type": "横式",
+  "best_logo": [
+    "csg_logo",
+    [
+      210,
+      561,
+      415,
+      705
+    ],
+    0.7949538230895996
+  ],
+  "roi_logo_bbox": [
+    58,
+    10,
+    263,
+    154
+  ],
+  "roi_elements": [
+    {
+      "text": "中国南方电网",
+      "bbox": [
+        236,
+        30,
+        764,
+        159
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "利国营业厅",
+      "bbox": [
+        864,
+        89,
+        1200,
+        175
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "CHINA SOUTHE RNPOWER GRID",
+      "bbox": [
+        247,
+        113,
+        760,
+        171
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "LIGUO BUSIN ESS HALL",
+      "bbox": [
+        866,
+        148,
+        1204,
+        200
+      ],
+      "orientation": 0
+    }
+  ],
+  "blur_detection": {
+    "is_clear": true,
+    "combined_score": 2.62,
+    "laplacian_var": 6408.16,
+    "sobel_var": 11091.13,
+    "threshold": 0.4
+  }
+}

@@ -1,0 +1,295 @@
+{
+    "input_path": "D:\\信安实习\\VI_Logo_Parsing\\input\\书宁整理的颜色测试图image\\good\\nanwan_pic_3m4t.jpeg",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                2.263176441192627,
+                0,
+                2196.951171875,
+                1648.7867431640625
+            ],
+            "block_label": "image",
+            "block_content": "中国南方电网\nCHINA SOUTHERN POWER GRID\n南网情深\n万家灯火\n能"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 1,
+                "label": "image",
+                "score": 0.9836989641189575,
+                "coordinate": [
+                    2.263176441192627,
+                    0,
+                    2196.951171875,
+                    1648.7867431640625
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    529,
+                    780
+                ],
+                [
+                    1105,
+                    780
+                ],
+                [
+                    1105,
+                    867
+                ],
+                [
+                    529,
+                    867
+                ]
+            ],
+            [
+                [
+                    527,
+                    872
+                ],
+                [
+                    1100,
+                    869
+                ],
+                [
+                    1100,
+                    902
+                ],
+                [
+                    527,
+                    905
+                ]
+            ],
+            [
+                [
+                    642,
+                    956
+                ],
+                [
+                    1102,
+                    956
+                ],
+                [
+                    1102,
+                    1036
+                ],
+                [
+                    642,
+                    1036
+                ]
+            ],
+            [
+                [
+                    293,
+                    966
+                ],
+                [
+                    676,
+                    966
+                ],
+                [
+                    676,
+                    1038
+                ],
+                [
+                    293,
+                    1038
+                ]
+            ],
+            [
+                [
+                    1868,
+                    1284
+                ],
+                [
+                    2172,
+                    1284
+                ],
+                [
+                    2172,
+                    1603
+                ],
+                [
+                    1868,
+                    1603
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "中国南方电网",
+            "CHINA SOUTHERN POWER GRID",
+            "南网情深",
+            "万家灯火",
+            "能"
+        ],
+        "rec_scores": [
+            0.9977148175239563,
+            0.9687312841415405,
+            0.9967706203460693,
+            0.9986515641212463,
+            0.9990891218185425
+        ],
+        "rec_polys": [
+            [
+                [
+                    529,
+                    780
+                ],
+                [
+                    1105,
+                    780
+                ],
+                [
+                    1105,
+                    867
+                ],
+                [
+                    529,
+                    867
+                ]
+            ],
+            [
+                [
+                    527,
+                    872
+                ],
+                [
+                    1100,
+                    869
+                ],
+                [
+                    1100,
+                    902
+                ],
+                [
+                    527,
+                    905
+                ]
+            ],
+            [
+                [
+                    642,
+                    956
+                ],
+                [
+                    1102,
+                    956
+                ],
+                [
+                    1102,
+                    1036
+                ],
+                [
+                    642,
+                    1036
+                ]
+            ],
+            [
+                [
+                    293,
+                    966
+                ],
+                [
+                    676,
+                    966
+                ],
+                [
+                    676,
+                    1038
+                ],
+                [
+                    293,
+                    1038
+                ]
+            ],
+            [
+                [
+                    1868,
+                    1284
+                ],
+                [
+                    2172,
+                    1284
+                ],
+                [
+                    2172,
+                    1603
+                ],
+                [
+                    1868,
+                    1603
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                529,
+                780,
+                1105,
+                867
+            ],
+            [
+                527,
+                869,
+                1100,
+                905
+            ],
+            [
+                642,
+                956,
+                1102,
+                1036
+            ],
+            [
+                293,
+                966,
+                676,
+                1038
+            ],
+            [
+                1868,
+                1284,
+                2172,
+                1603
+            ]
+        ]
+    }
+}

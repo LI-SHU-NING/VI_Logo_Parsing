@@ -52,6 +52,12 @@
           "severity": "error"
         },
         {
+          "name": "子公司位置不规范",
+          "description": "子公司文字不在品牌文字下方而在同一行右侧，不符合横式规范布局要求",
+          "condition": "subsidiary_top < cn_text_bottom",
+          "severity": "warning"
+        },
+        {
           "name": "中文字体过大",
           "description": "'中国南方电网'文字宽度超过5.5倍基准距离",
           "condition": "cn_text_width > 5.5 * A",
@@ -124,6 +130,12 @@
           "severity": "error"
         },
         {
+          "name": "子公司单框不规范",
+          "description": "中置式下部应使用纵向双框，当前仅检测到单个子公司文字框，布局不规范",
+          "condition": "sub_missing_lower == 1",
+          "severity": "warning"
+        },
+        {
           "name": "上部框间距过大",
           "description": "子公司上部框距中置式超过1A",
           "condition": "sub_upper_top - cn_text_bottom > 0.6 * A",
@@ -183,9 +195,15 @@
           "severity": "error"
         },
         {
+          "name": "子公司单框不规范",
+          "description": "中置式下部应使用纵向双框，当前仅检测到单个子公司文字框，布局不规范",
+          "condition": "sub_missing_lower == 1",
+          "severity": "warning"
+        },
+        {
           "name": "上部框间距过大",
-          "description": "子公司上部框距中置式超过0.5A",
-          "condition": "sub_upper_top - cn_text_bottom > 0.5 * A",
+          "description": "子公司上部框距英文底边超过0.5A",
+          "condition": "sub_upper_top - en_text_bottom > 0.5 * A",
           "severity": "warning"
         },
         {

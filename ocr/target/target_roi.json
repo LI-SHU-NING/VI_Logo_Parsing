@@ -14,7 +14,7 @@
       1437,
       2146
     ],
-    0.9771722555160522
+    0.9771721363067627
   ],
   "roi_logo_bbox": [
     165,
@@ -53,5 +53,12 @@
       ],
       "orientation": 0
     }
-  ]
+  ],
+  "blur_detection": {
+    "is_clear": true,
+    "combined_score": 1.23,
+    "laplacian_var": 3324.18,
+    "sobel_var": 7409.05,
+    "threshold": 0.4
+  }
 }

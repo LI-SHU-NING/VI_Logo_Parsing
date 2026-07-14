@@ -1,0 +1,67 @@
+{
+  "max_box": [
+    31,
+    0,
+    235,
+    555
+  ],
+  "layout_type": "竖式",
+  "best_logo": [
+    "csg_logo",
+    [
+      62,
+      7,
+      204,
+      119
+    ],
+    0.9395250082015991
+  ],
+  "roi_logo_bbox": [
+    31,
+    7,
+    173,
+    119
+  ],
+  "roi_elements": [
+    {
+      "text": "中国南方电网",
+      "bbox": [
+        12,
+        115,
+        194,
+        142
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "CHINASOUTHERNPOWERGRID",
+      "bbox": [
+        10,
+        140,
+        195,
+        154
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "百马供电所",
+      "bbox": [
+        33,
+        165,
+        92,
+        434
+      ],
+      "orientation": 90
+    },
+    {
+      "text": "河池供电局",
+      "bbox": [
+        96,
+        167,
+        168,
+        529
+      ],
+      "orientation": 90
+    }
+  ]
+}

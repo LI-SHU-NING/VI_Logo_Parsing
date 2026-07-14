@@ -1,0 +1,134 @@
+{
+  "max_box": [
+    503,
+    0,
+    1813,
+    973
+  ],
+  "layout_type": "横式",
+  "best_logo": [
+    "csg_logo",
+    [
+      777,
+      192,
+      1016,
+      376
+    ],
+    0.8815118670463562
+  ],
+  "roi_logo_bbox": [
+    274,
+    192,
+    513,
+    376
+  ],
+  "roi_elements": [
+    {
+      "text": "Business reception area",
+      "bbox": [
+        614,
+        0,
+        825,
+        53
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "中国南方电网",
+      "bbox": [
+        542,
+        237,
+        1103,
+        382
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "CHINA SOUTHERN POWER GRID",
+      "bbox": [
+        543,
+        341,
+        1095,
+        420
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "电费收缴",
+      "bbox": [
+        403,
+        695,
+        594,
+        758
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "中国南方电网",
+      "bbox": [
+        60,
+        742,
+        431,
+        821
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "电费收缴",
+      "bbox": [
+        1075,
+        737,
+        1251,
+        800
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "平塘客户服务中心",
+      "bbox": [
+        633,
+        780,
+        1045,
+        854
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "CHINA SOUTHERN POWER GRID",
+      "bbox": [
+        60,
+        799,
+        426,
+        847
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "PIN TANG CUSTOMER SE VICE CENTER",
+      "bbox": [
+        631,
+        832,
+        1047,
+        879
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "人家电",
+      "bbox": [
+        518,
+        890,
+        619,
+        927
+      ],
+      "orientation": 0
+    }
+  ],
+  "blur_detection": {
+    "is_clear": true,
+    "combined_score": 3.1,
+    "laplacian_var": 4319.18,
+    "sobel_var": 5818.31,
+    "threshold": 0.4
+  }
+}

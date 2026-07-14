@@ -115,7 +115,7 @@ class ModelConfig:
                     "type": "ollama",
                     "enabled": True,
                     "priority": 1,
-                    "base_url": "http://127.0.0.1:11434",
+                    "base_url": "http://localhost:12347",
                     "llm_model": "deepseek-r1:32b",
                     "mllm_model": "qwen3-vl:8b",
                     "timeout": 7200,

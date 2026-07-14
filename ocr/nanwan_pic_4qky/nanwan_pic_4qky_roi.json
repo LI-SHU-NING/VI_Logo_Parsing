@@ -1,0 +1,67 @@
+{
+  "max_box": [
+    622,
+    233,
+    1263,
+    944
+  ],
+  "layout_type": "中置式",
+  "best_logo": [
+    "csg_logo",
+    [
+      748,
+      266,
+      1129,
+      548
+    ],
+    0.9703352451324463
+  ],
+  "roi_logo_bbox": [
+    126,
+    33,
+    507,
+    315
+  ],
+  "roi_elements": [
+    {
+      "text": "中国南方电网",
+      "bbox": [
+        94,
+        309,
+        562,
+        379
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "CHINA SOUTHERN POWER GRID",
+      "bbox": [
+        96,
+        383,
+        564,
+        411
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "庆平营业厅",
+      "bbox": [
+        30,
+        499,
+        612,
+        616
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "QINGPING BUSINESS HALL",
+      "bbox": [
+        60,
+        630,
+        578,
+        679
+      ],
+      "orientation": 0
+    }
+  ]
+}

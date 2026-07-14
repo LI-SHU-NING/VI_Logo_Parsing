@@ -13,7 +13,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 # ── 渲染参数 ──
-PANEL_WIDTH = 480          # 右侧面板固定宽度
+PANEL_WIDTH = 750          # 右侧面板固定宽度
 MIN_FONT_SIZE = 18
 SCREEN_RATIO = 0.90
 
@@ -77,33 +77,6 @@ def _draw_line(canvas, pt1, pt2, color, thick):
 def _draw_circle(canvas, center, radius, color, fill=-1):
     cv2.circle(canvas, center, radius, color, fill, cv2.LINE_AA)
 
-
-# ── 条件解析 ──
-
-def _parse_req(cond):
-    """从条件字符串提取可读范围"""
-    import re
-    nums = [float(m) for m in re.findall(r'([\d.]+)\s*\*\s*A', cond)]
-    ops = re.findall(r'([><]=?)\s*[\d.]+\s*\*\s*A', cond)
-    if not nums:
-        return ""
-    lo, hi = None, None
-    for op, val in zip(ops, nums):
-        if op in ('<', '<='):
-            hi = val if hi is None else min(hi, val)
-        else:
-            lo = val if lo is None else max(lo, val)
-    if lo is not None and hi is not None and lo > hi:
-        lo, hi = hi, lo
-    if lo is not None and hi is not None:
-        return f"{lo:.2f}-{hi:.2f}A"
-    if lo is not None:
-        return f">{lo:.2f}A"
-    if hi is not None:
-        return f"<{hi:.2f}A"
-    return ""
-
-
 class _Panel:
     def __init__(self, violations=None):
         self.boxes = []
@@ -122,30 +95,37 @@ class _Panel:
         rgb = (color[2], color[1], color[0]) if len(color) == 3 else color
         self.gaps.append((label, rgb, px / A))
 
-    def render(self, draw, x0, y0, font, font_sm, img_h):
+    def render(self, draw, x0, y0, font, font_sm, total_w):
+        """渲染面板并返回实际需要的总高度（不受原图高度限制）。"""
         pad = int(font_sm.size * 0.8)
         indent = pad + 6
         row_h = int(font_sm.size * 1.8)
+        label_max_w = PANEL_WIDTH - 2 * pad
+
+        # ── 列坐标（动态计算，避免与标签重叠） ──
+        col_name = x0 + indent
+        col_w = x0 + PANEL_WIDTH - 230   # W(A) 列
+        col_h = x0 + PANEL_WIDTH - 100   # H(A) 列
+        col_a = x0 + PANEL_WIDTH - 90    # A倍 列
+
         cy = y0 + pad
 
         # ── 框体尺寸 ──
         if self.boxes:
             draw.text((x0 + pad, cy), "框体尺寸:", fill=(80, 80, 80), font=font)
             cy += row_h
-            draw.text((x0 + indent, cy), "名称", fill=(130, 130, 130), font=font_sm)
-            draw.text((x0 + 170, cy), "W(A)", fill=(130, 130, 130), font=font_sm)
-            draw.text((x0 + 290, cy), "H(A)", fill=(130, 130, 130), font=font_sm)
+            draw.text((col_name, cy), "名称", fill=(130, 130, 130), font=font_sm)
+            draw.text((col_w, cy), "W(A)", fill=(130, 130, 130), font=font_sm)
+            draw.text((col_h, cy), "H(A)", fill=(130, 130, 130), font=font_sm)
             cy += row_h
 
             for label, rgb, w_A, h_A in self.boxes:
-                if cy + row_h > img_h:
-                    break
                 sq = max(8, font_sm.size - 4)
-                draw.rectangle([x0 + indent, cy + 4, x0 + indent + sq, cy + 4 + sq],
+                draw.rectangle([col_name, cy + 4, col_name + sq, cy + 4 + sq],
                                fill=rgb, outline=(180, 180, 180))
-                draw.text((x0 + indent + sq + 4, cy), label, fill=(50, 50, 50), font=font_sm)
-                draw.text((x0 + 170, cy), f"{w_A:.2f}", fill=(50, 50, 50), font=font_sm)
-                draw.text((x0 + 290, cy), f"{h_A:.2f}", fill=(50, 50, 50), font=font_sm)
+                draw.text((col_name + sq + 4, cy), label, fill=(50, 50, 50), font=font_sm)
+                draw.text((col_w, cy), f"{w_A:.2f}", fill=(50, 50, 50), font=font_sm)
+                draw.text((col_h, cy), f"{h_A:.2f}", fill=(50, 50, 50), font=font_sm)
                 cy += row_h
 
         # ── 间距测量 ──
@@ -153,52 +133,92 @@ class _Panel:
             cy += pad * 2
             draw.text((x0 + pad, cy), "间距测量:", fill=(80, 80, 80), font=font)
             cy += row_h
-            draw.text((x0 + indent, cy), "名称", fill=(130, 130, 130), font=font_sm)
-            draw.text((x0 + 280, cy), "A倍", fill=(130, 130, 130), font=font_sm)
+            draw.text((col_name, cy), "名称", fill=(130, 130, 130), font=font_sm)
+            draw.text((col_a, cy), "A倍", fill=(130, 130, 130), font=font_sm)
             cy += row_h
 
             for label, rgb, a_val in self.gaps:
-                if cy + row_h > img_h:
-                    break
                 sq = max(8, font_sm.size - 4)
-                draw.rectangle([x0 + indent, cy + 4, x0 + indent + sq, cy + 4 + sq],
+                draw.rectangle([col_name, cy + 4, col_name + sq, cy + 4 + sq],
                                fill=rgb, outline=(180, 180, 180))
-                draw.text((x0 + indent + sq + 4, cy), label, fill=(50, 50, 50), font=font_sm)
-                draw.text((x0 + 280, cy), f"{a_val:.2f}", fill=(50, 50, 50), font=font_sm)
+                draw.text((col_name + sq + 4, cy), label, fill=(50, 50, 50), font=font_sm)
+                draw.text((col_a, cy), f"{a_val:.2f}", fill=(50, 50, 50), font=font_sm)
                 cy += row_h
 
-        # ── 违规详情 ──
+        # ── 违规详情（自动换行） ──
         if self.violations:
             cy += pad * 2
             draw.text((x0 + pad, cy), "违规项:", fill=(200, 40, 40), font=font)
             cy += row_h
+
+            # 计算违规文字可用宽度（面板宽度 - indent - 右侧留白）
+            violation_line_w = PANEL_WIDTH - indent - pad
+
             for v in self.violations:
-                if cy + row_h > img_h:
-                    break
                 name = v.get("name", "")
-                cond = v.get("condition", "")
-                req = _parse_req(cond)
-                line = f"! {name}"
-                if req:
-                    line += f"  应: {req}"
-                draw.text((x0 + indent, cy), line, fill=(200, 40, 40), font=font_sm)
-                cy += row_h
+                desc = v.get("description", "")
+                # 构建完整文本
+                full_line = f"! {name}"
+                if desc:
+                    full_line += f"  ({desc})"
+
+                # 根据可用宽度自动换行
+                wrapped_lines = _wrap_text(full_line, font_sm, violation_line_w)
+                for wl in wrapped_lines:
+                    draw.text((col_name, cy), wl, fill=(200, 40, 40), font=font_sm)
+                    cy += row_h
+
+        # 底部留白
+        cy += pad
+
+        return cy
+
+
+def _wrap_text(text: str, font, max_width: int) -> list[str]:
+    """将文本按像素宽度自动换行，返回行列表。"""
+    if max_width <= 0:
+        return [text]
+
+    lines = []
+    current_line = ""
+    for ch in text:
+        test_line = current_line + ch
+        try:
+            bbox = font.getbbox(test_line)
+            w = bbox[2] - bbox[0] if bbox else len(test_line) * font.size
+        except Exception:
+            w = len(test_line) * font.size
+
+        if w > max_width and current_line:
+            lines.append(current_line)
+            current_line = ch
+        else:
+            current_line = test_line
+
+    if current_line:
+        lines.append(current_line)
+    return lines
 
 
 # ── 渲染输出 ──
 
 def _render_panel_window(img_canvas, img_w, img_h, texts, panel, info, font, font_sm,
                           file_name, A_raw):
-    """组装 [图像 + 480px 面板] 并显示。
-    违规时图像区域叠加红色边框警告。
-    """
-    MIN_WIN_H = 700
+    """组装 [图像 + 面板] 并显示。面板高度自适应，保证所有内容不遮挡不遗漏。"""
     total_w = img_w + PANEL_WIDTH
-    total_h = max(img_h, MIN_WIN_H)
+
+    # ── 第一阶段：在虚拟画布上试渲染面板，获得所需高度 ──
+    _dummy = Image.new("RGB", (total_w, 1), (255, 255, 255))
+    _dummy_draw = ImageDraw.Draw(_dummy)
+    panel_needed_h = panel.render(_dummy_draw, img_w, 36, font, font_sm, total_w)
+
+    total_h = max(img_h, panel_needed_h)
+    MIN_WIN_H = 400
+    total_h = max(total_h, MIN_WIN_H)
 
     canvas = np.full((total_h, total_w, 3), 255, dtype=np.uint8)
 
-    # 图像居中
+    # 图像居中（垂直方向）
     y_off = max(0, (total_h - img_h) // 2)
     canvas[y_off:y_off + img_h, :img_w] = img_canvas
 
@@ -213,13 +233,12 @@ def _render_panel_window(img_canvas, img_w, img_h, texts, panel, info, font, fon
         # 顶部警告条
         cv2.rectangle(canvas, (0, y_off), (img_w - 1, y_off + 30),
                       (50, 50, 255), -1, cv2.LINE_AA)
-        # 用 PIL 写文字
         pil_tmp = Image.fromarray(cv2.cvtColor(canvas, cv2.COLOR_BGR2RGB))
         tmp_draw = ImageDraw.Draw(pil_tmp)
         tmp_draw.text((img_w // 2 - 40, y_off + 4), "FAIL", fill=(255, 255, 255), font=font)
         canvas = cv2.cvtColor(np.array(pil_tmp), cv2.COLOR_RGB2BGR)
 
-    # 分隔线
+    # 分隔线（全高度）
     cv2.line(canvas, (img_w, 0), (img_w, total_h - 1), (200, 200, 200), 1, cv2.LINE_AA)
 
     # 超屏缩放
@@ -232,8 +251,7 @@ def _render_panel_window(img_canvas, img_w, img_h, texts, panel, info, font, fon
         new_total_h = int(total_h * scale)
         canvas = cv2.resize(canvas, (new_total_w, new_total_h), interpolation=cv2.INTER_AREA)
         total_w, total_h = new_total_w, new_total_h
-        new_img_w = int(img_w * scale)
-        img_w = new_img_w
+        img_w = int(img_w * scale)
         y_off = int(y_off * scale)
 
     pil_img = Image.fromarray(cv2.cvtColor(canvas, cv2.COLOR_BGR2RGB))
@@ -249,7 +267,7 @@ def _render_panel_window(img_canvas, img_w, img_h, texts, panel, info, font, fon
     sc = (0, 180, 0) if not has_violations else (200, 40, 40)
     draw.text((img_w + 10, 10), f"A = {A_raw:.0f} px  {status}", fill=sc, font=font)
 
-    panel.render(draw, img_w, 36, font, font_sm, total_h)
+    panel.render(draw, img_w, 36, font, font_sm, total_w)
 
     canvas = cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGB2BGR)
     cv2.namedWindow(file_name, cv2.WINDOW_NORMAL)
@@ -516,17 +534,23 @@ def show_gaps_window(result: dict):
 
 def save_gaps_image(result: dict, output_path: str):
     """保存间距参考图为 PNG 文件（含右侧信息面板）。
-    如果总宽度超过 2400px，等比压缩至 2400px 以内，保证面板不被挤压。
+    面板高度自适应，保证所有内容不遮挡不遗漏。
+    如果总宽度超过 2400px，等比压缩至 2400px 以内。
     """
     MAX_SAVE_W = 2400
-    MIN_WIN_H = 700
     data = _build_gaps_result(result)
     if data is None:
         return None
     canvas, img_w, img_h, texts, panel, info, font, font_sm, A = data
 
     total_w = img_w + PANEL_WIDTH
-    total_h = max(img_h, MIN_WIN_H)
+
+    # ── 试渲染面板，获得所需高度 ──
+    _dummy = Image.new("RGB", (total_w, 1), (255, 255, 255))
+    _dummy_draw = ImageDraw.Draw(_dummy)
+    panel_needed_h = panel.render(_dummy_draw, img_w, 36, font, font_sm, total_w)
+    total_h = max(img_h, panel_needed_h)
+    total_h = max(total_h, 400)
 
     # 超宽缩放
     if total_w > MAX_SAVE_W:
@@ -537,10 +561,9 @@ def save_gaps_image(result: dict, output_path: str):
         img_w = int(img_w * scale)
         img_h = int(img_h * scale)
         total_w = int(total_w * scale)
-        total_h = max(int(total_h * scale), MIN_WIN_H)
+        total_h = max(int(total_h * scale), 400)
         font = _load_cjk_font(max(MIN_FONT_SIZE, int(font.size * scale)))
         font_sm = _load_cjk_font(max(MIN_FONT_SIZE, int(font_sm.size * scale)))
-        # 缩放 texts 坐标
         texts = [(int(x * scale), int(y * scale), t, c) for x, y, t, c in texts]
         A = A * scale
 
@@ -558,7 +581,7 @@ def save_gaps_image(result: dict, output_path: str):
     status = "PASS" if not panel.violations else "FAIL"
     sc = (0, 180, 0) if not panel.violations else (200, 40, 40)
     draw.text((img_w + 10, 10), f"A = {A:.0f} px  {status}", fill=sc, font=font)
-    panel.render(draw, img_w, 36, font, font_sm, total_h)
+    panel.render(draw, img_w, 36, font, font_sm, total_w)
 
     out = cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGB2BGR)
     cv2.imencode('.png', out)[1].tofile(output_path)

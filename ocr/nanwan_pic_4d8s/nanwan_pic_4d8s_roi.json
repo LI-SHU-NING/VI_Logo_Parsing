@@ -1,0 +1,67 @@
+{
+  "max_box": [
+    308,
+    79,
+    787,
+    639
+  ],
+  "layout_type": "中置式",
+  "best_logo": [
+    "csg_logo",
+    [
+      368,
+      105,
+      565,
+      244
+    ],
+    0.9213377237319946
+  ],
+  "roi_logo_bbox": [
+    60,
+    26,
+    257,
+    165
+  ],
+  "roi_elements": [
+    {
+      "text": "中国南方电网",
+      "bbox": [
+        31,
+        165,
+        286,
+        204
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "CHINA SOUTHERN POWER GRID",
+      "bbox": [
+        29,
+        200,
+        287,
+        222
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "广东分公司番禺支公司",
+      "bbox": [
+        26,
+        462,
+        456,
+        510
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "GUANGDONG BRANCH PANYU SUBBRANCH",
+      "bbox": [
+        22,
+        507,
+        458,
+        535
+      ],
+      "orientation": 0
+    }
+  ]
+}

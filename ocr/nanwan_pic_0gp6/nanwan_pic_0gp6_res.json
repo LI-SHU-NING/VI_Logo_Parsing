@@ -1,0 +1,205 @@
+{
+    "input_path": "D:\\信安实习\\VI_Logo_Parsing\\input\\书宁整理的颜色测试图image\\good\\nanwan_pic_0gp6.png",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                165.8272705078125,
+                0,
+                1080,
+                1919.4666748046875
+            ],
+            "block_label": "image",
+            "block_content": "中国南方电网\nCHINA SOUTHERN POWERGRD\n城区营业厅"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 1,
+                "label": "image",
+                "score": 0.9687163829803467,
+                "coordinate": [
+                    165.8272705078125,
+                    0,
+                    1080,
+                    1919.4666748046875
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    410,
+                    665
+                ],
+                [
+                    849,
+                    709
+                ],
+                [
+                    839,
+                    807
+                ],
+                [
+                    400,
+                    763
+                ]
+            ],
+            [
+                [
+                    412,
+                    777
+                ],
+                [
+                    846,
+                    803
+                ],
+                [
+                    845,
+                    835
+                ],
+                [
+                    410,
+                    809
+                ]
+            ],
+            [
+                [
+                    341,
+                    846
+                ],
+                [
+                    774,
+                    846
+                ],
+                [
+                    774,
+                    928
+                ],
+                [
+                    341,
+                    928
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "中国南方电网",
+            "CHINA SOUTHERN POWERGRD",
+            "城区营业厅"
+        ],
+        "rec_scores": [
+            0.998767077922821,
+            0.9815883040428162,
+            0.9993521571159363
+        ],
+        "rec_polys": [
+            [
+                [
+                    410,
+                    665
+                ],
+                [
+                    849,
+                    709
+                ],
+                [
+                    839,
+                    807
+                ],
+                [
+                    400,
+                    763
+                ]
+            ],
+            [
+                [
+                    412,
+                    777
+                ],
+                [
+                    846,
+                    803
+                ],
+                [
+                    845,
+                    835
+                ],
+                [
+                    410,
+                    809
+                ]
+            ],
+            [
+                [
+                    341,
+                    846
+                ],
+                [
+                    774,
+                    846
+                ],
+                [
+                    774,
+                    928
+                ],
+                [
+                    341,
+                    928
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                400,
+                665,
+                849,
+                807
+            ],
+            [
+                410,
+                777,
+                846,
+                835
+            ],
+            [
+                341,
+                846,
+                774,
+                928
+            ]
+        ]
+    }
+}

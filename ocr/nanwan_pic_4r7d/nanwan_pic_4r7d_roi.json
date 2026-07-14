@@ -1,0 +1,74 @@
+{
+  "max_box": [
+    31,
+    60,
+    1158,
+    502
+  ],
+  "layout_type": "横式",
+  "best_logo": [
+    "csg_logo",
+    [
+      83,
+      81,
+      222,
+      181
+    ],
+    0.9616785049438477
+  ],
+  "roi_logo_bbox": [
+    52,
+    21,
+    191,
+    121
+  ],
+  "roi_elements": [
+    {
+      "text": "中国南方电网",
+      "bbox": [
+        200,
+        51,
+        479,
+        111
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "CHINASOUTHERNPOWERGRID",
+      "bbox": [
+        202,
+        97,
+        478,
+        125
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "南方电网财务有限公司云南分公司",
+      "bbox": [
+        103,
+        221,
+        1077,
+        359
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "SOUTHERNPOWER GRID FINANCECO.,LTD YUNNANBRANCH",
+      "bbox": [
+        114,
+        301,
+        1074,
+        422
+      ],
+      "orientation": 0
+    }
+  ],
+  "blur_detection": {
+    "is_clear": true,
+    "combined_score": 6.17,
+    "laplacian_var": 12583.75,
+    "sobel_var": 16746.59,
+    "threshold": 0.4
+  }
+}

@@ -12,7 +12,7 @@
         },
         "subsidiary_keywords": {
             "description": "子公司/机构名称关键字（含英文子公司常用词）",
-            "keywords": ["公司", "局", "中心", "研究院", "所", "分公司", "电", "电网", "供电", "输电", "发电", "储能", "财务", "数字", "物资", "资本", "信息", "科技", "SUPPLY", "LTD", "CO.", "FINANCE", "ENERGY", "STORAGE", "COMPANY", "LIMITED", "INC", "CORP", "GROUP", "HOLDINGS", "ELECTRIC", "INVESTMENT", "DEVELOPMENT", "TECHNOLOGY", "SERVICES", "MANAGEMENT", "CONSTRUCTION", "ENGINEERING", "MAINTENANCE", "OPERATION", "RESEARCH", "INSTITUTE", "CENTER", "BRANCH", "DIVISION", "BUREAU", "ADMINISTRATION", "TRANSMISSION", "DISTRIBUTION", "GENERATION", "SUBSTATION"]
+            "keywords": ["公司", "局", "厅", "营业厅", "中心", "研究院", "所", "分公司", "电", "电网", "供电", "输电", "发电", "储能", "财务", "数字", "物资", "资本", "信息", "科技", "SUPPLY", "LTD", "CO.", "FINANCE", "ENERGY", "STORAGE", "COMPANY", "LIMITED", "INC", "CORP", "GROUP", "HOLDINGS", "ELECTRIC", "INVESTMENT", "DEVELOPMENT", "TECHNOLOGY", "SERVICES", "MANAGEMENT", "CONSTRUCTION", "ENGINEERING", "MAINTENANCE", "OPERATION", "RESEARCH", "INSTITUTE", "CENTER", "BRANCH", "DIVISION", "BUREAU", "ADMINISTRATION", "TRANSMISSION", "DISTRIBUTION", "GENERATION", "SUBSTATION", "HALL", "BUSINESS"]
         },
         "brand_slogans": {
             "description": "品牌口号",

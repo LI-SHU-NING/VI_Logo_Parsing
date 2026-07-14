@@ -1,0 +1,74 @@
+{
+  "max_box": [
+    906,
+    1782,
+    2076,
+    2439
+  ],
+  "layout_type": "横式",
+  "best_logo": [
+    "csg_logo",
+    [
+      960,
+      1812,
+      1295,
+      2061
+    ],
+    0.8348010778427124
+  ],
+  "roi_logo_bbox": [
+    54,
+    30,
+    389,
+    279
+  ],
+  "roi_elements": [
+    {
+      "text": "中国南方电网",
+      "bbox": [
+        391,
+        81,
+        1117,
+        213
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "CHINA SOUTHERN POWER GRID",
+      "bbox": [
+        387,
+        208,
+        1100,
+        260
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "广西电网崇左供电局",
+      "bbox": [
+        271,
+        307,
+        1010,
+        414
+      ],
+      "orientation": 0
+    },
+    {
+      "text": "24小时供电客户服务热线",
+      "bbox": [
+        176,
+        512,
+        819,
+        628
+      ],
+      "orientation": 0
+    }
+  ],
+  "blur_detection": {
+    "is_clear": true,
+    "combined_score": 4.06,
+    "laplacian_var": 5769.95,
+    "sobel_var": 12266.77,
+    "threshold": 0.4
+  }
+}

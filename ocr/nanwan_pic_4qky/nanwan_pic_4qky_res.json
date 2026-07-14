@@ -1,0 +1,295 @@
+{
+    "input_path": "D:\\信安实习\\VI_Logo_Parsing\\input\\书宁整理的颜色测试图image\\bad\\nanwan_pic_4qky.jpeg",
+    "page_index": null,
+    "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_seal_recognition": false,
+        "use_table_recognition": false,
+        "use_formula_recognition": false
+    },
+    "parsing_res_list": [
+        {
+            "block_bbox": [
+                0,
+                0.4644298553466797,
+                1918.842041015625,
+                1440
+            ],
+            "block_label": "image",
+            "block_content": "丰\n中国南方电网\nCHINA SOUTHERN POWER GRID\n庆平营业厅\nQINGPING BUSINESS HALL"
+        }
+    ],
+    "layout_det_res": {
+        "input_path": null,
+        "page_index": null,
+        "boxes": [
+            {
+                "cls_id": 1,
+                "label": "image",
+                "score": 0.9883983731269836,
+                "coordinate": [
+                    0,
+                    0.4644298553466797,
+                    1918.842041015625,
+                    1440
+                ]
+            }
+        ]
+    },
+    "overall_ocr_res": {
+        "input_path": null,
+        "page_index": null,
+        "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_textline_orientation": false
+        },
+        "dt_polys": [
+            [
+                [
+                    770,
+                    254
+                ],
+                [
+                    1132,
+                    254
+                ],
+                [
+                    1132,
+                    538
+                ],
+                [
+                    770,
+                    538
+                ]
+            ],
+            [
+                [
+                    716,
+                    542
+                ],
+                [
+                    1184,
+                    542
+                ],
+                [
+                    1184,
+                    612
+                ],
+                [
+                    716,
+                    612
+                ]
+            ],
+            [
+                [
+                    718,
+                    616
+                ],
+                [
+                    1186,
+                    616
+                ],
+                [
+                    1186,
+                    644
+                ],
+                [
+                    718,
+                    644
+                ]
+            ],
+            [
+                [
+                    653,
+                    732
+                ],
+                [
+                    1234,
+                    737
+                ],
+                [
+                    1233,
+                    849
+                ],
+                [
+                    652,
+                    845
+                ]
+            ],
+            [
+                [
+                    682,
+                    863
+                ],
+                [
+                    1200,
+                    872
+                ],
+                [
+                    1200,
+                    912
+                ],
+                [
+                    682,
+                    904
+                ]
+            ]
+        ],
+        "text_det_params": {
+            "limit_side_len": 960,
+            "limit_type": "max",
+            "thresh": 0.3,
+            "max_side_limit": 4000,
+            "box_thresh": 0.6,
+            "unclip_ratio": 1.5
+        },
+        "text_type": "general",
+        "textline_orientation_angles": [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+        ],
+        "text_rec_score_thresh": 0,
+        "return_word_box": false,
+        "rec_texts": [
+            "丰",
+            "中国南方电网",
+            "CHINA SOUTHERN POWER GRID",
+            "庆平营业厅",
+            "QINGPING BUSINESS HALL"
+        ],
+        "rec_scores": [
+            0.5818513631820679,
+            0.991533100605011,
+            0.9735807180404663,
+            0.9996005296707153,
+            0.9890497326850891
+        ],
+        "rec_polys": [
+            [
+                [
+                    770,
+                    254
+                ],
+                [
+                    1132,
+                    254
+                ],
+                [
+                    1132,
+                    538
+                ],
+                [
+                    770,
+                    538
+                ]
+            ],
+            [
+                [
+                    716,
+                    542
+                ],
+                [
+                    1184,
+                    542
+                ],
+                [
+                    1184,
+                    612
+                ],
+                [
+                    716,
+                    612
+                ]
+            ],
+            [
+                [
+                    718,
+                    616
+                ],
+                [
+                    1186,
+                    616
+                ],
+                [
+                    1186,
+                    644
+                ],
+                [
+                    718,
+                    644
+                ]
+            ],
+            [
+                [
+                    653,
+                    732
+                ],
+                [
+                    1234,
+                    737
+                ],
+                [
+                    1233,
+                    849
+                ],
+                [
+                    652,
+                    845
+                ]
+            ],
+            [
+                [
+                    682,
+                    863
+                ],
+                [
+                    1200,
+                    872
+                ],
+                [
+                    1200,
+                    912
+                ],
+                [
+                    682,
+                    904
+                ]
+            ]
+        ],
+        "rec_boxes": [
+            [
+                770,
+                254,
+                1132,
+                538
+            ],
+            [
+                716,
+                542,
+                1184,
+                612
+            ],
+            [
+                718,
+                616,
+                1186,
+                644
+            ],
+            [
+                652,
+                732,
+                1234,
+                849
+            ],
+            [
+                682,
+                863,
+                1200,
+                912
+            ]
+        ]
+    }
+}

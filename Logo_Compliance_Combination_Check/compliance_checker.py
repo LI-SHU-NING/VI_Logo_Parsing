@@ -145,15 +145,18 @@ def _find_en_slogan(filtered_tuples):
 
 
 def _find_subsidiary_text(filtered_tuples, cn_bbox=None, en_bbox=None):
-    """查找子公司文字框（横式布局 — 品牌文字下方的独立文本）。
-    仅考虑在 en_bbox/cn_bbox 下方至少 5px 的候选框，按 y1 + 面积综合选出最底部的框。
+    """查找子公司文字框（横式布局 — 品牌文字下方或右侧的独立文本）。
+    候选框须在品牌区域下方（>= ref_bottom-5）或右侧（>= ref_right-5）。
     """
-    # 确定品牌文字区域的下边界
+    # 确定品牌文字区域的下边界和右边界
     ref_bottom = 0
+    ref_right = 0
     if en_bbox is not None:
         ref_bottom = en_bbox[3]
+        ref_right = en_bbox[2]
     if cn_bbox is not None:
         ref_bottom = max(ref_bottom, cn_bbox[3])
+        ref_right = max(ref_right, cn_bbox[2])
 
     candidates = []
     for tup in filtered_tuples:
@@ -165,8 +168,10 @@ def _find_subsidiary_text(filtered_tuples, cn_bbox=None, en_bbox=None):
         text_upper = tup[0].upper()
         if "万家灯火" in tup[0] or "LIGHT UP" in text_upper:
             continue
-        # 必须在品牌文字下方
-        if bbox[1] < ref_bottom - 5:
+        # 必须在品牌文字下方或右侧
+        is_below = bbox[1] >= ref_bottom - 5
+        is_right = bbox[0] >= ref_right - 5
+        if not is_below and not is_right:
             continue
         candidates.append(bbox)
 
@@ -210,10 +215,12 @@ def _find_subsidiary_stack(filtered_tuples, cn_bbox=None, en_bbox=None):
         if "万家灯火" in tup[0] or "LIGHT UP" in text_upper:
             continue
         candidates.append((bbox, tup[0]))
-    if len(candidates) < 2:
+    if not candidates:
         return None, None, False
     candidates.sort(key=lambda x: x[0][1])
     has_en = any(all(ord(c) < 128 for c in text) for _, text in candidates)
+    if len(candidates) == 1:
+        return candidates[0][0], None, has_en
     return candidates[0][0], candidates[-1][0], has_en
 
 
@@ -374,6 +381,7 @@ def check_compliance(
         "sub_lower_height": (sub_lower[3] - sub_lower[1]) if sub_lower else 0,
         "sub_lower_width": (sub_lower[2] - sub_lower[0]) if sub_lower else 0,
         "sub_has_en": 1 if sub_has_en else 0,
+        "sub_missing_lower": 1 if (sub_upper is not None and sub_lower is None) else 0,
     }
 
     # 加载规则模板
@@ -491,15 +499,6 @@ def print_report(result: dict):
     print(f"  布局: {result['layout_type']}")
     print(f"  基准距离 A = {result['A']:.0f}px")
     print(f"  结果: {status}")
-
-    env = result.get("_eval_env", {})
-    if env:
-        print(f"\n  测量参数:")
-        for k, v in env.items():
-            if isinstance(v, (int, float)):
-                print(f"    {k}: {v:.1f}" if v == round(v, 1) else f"    {k}: {v:.2f}")
-            else:
-                print(f"    {k}: {v}")
 
     if result["violations"]:
         print(f"\n  违规项 ({len(result['violations'])}):")

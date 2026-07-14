@@ -3,7 +3,7 @@
 品牌标识识别入口程序（主流程）
 
 流程:
-    0. 调用 blur_detection 进行图像模糊检测 → 不通过则终止流程（is_clear=False）
+    0. 图像加载（模糊检测移至 Step 4 后对 ROI 区域执行，仅标志位不终止流程）
     1. 调用 OCR_Parsing 进行 OCR 定位识别 → 输出 (文本, 坐标, 朝向) 元组
     2. 调用 OCR_Tuple_Information_Filtering 过滤无关元组 → 保留品牌相关信息
     3. 调用 Yolov26_Logo_Object_Detection 进行 Logo 目标检测 → 输出 logo 元组
@@ -100,6 +100,67 @@ def _write_run_log(logs_dir: Path, input_stem: str, timing: dict, result: dict) 
     return str(log_path)
 
 
+def _save_classified_image(img_bgr, input_file: Path, result: dict):
+    """临时功能：按好/坏分类保存原图到 classified_images 文件夹。
+    
+    好图 → classified_images/good/原文件名
+    坏图 → classified_images/bad/失败原因.扩展名
+    """
+    if img_bgr is None:
+        return
+
+    base_dir = Path(__file__).resolve().parent / "classified_images"
+    reasons = []
+
+    # ── 收集失败原因 ──
+    bd = result.get("blur_detection")
+    if bd and not bd.get("is_clear"):
+        reasons.append("模糊")
+
+    if not result.get("success") and "OCR" in result.get("message", ""):
+        reasons.append("OCR失败")
+
+    brand = result.get("brand_classification")
+    if brand and not brand.get("rule_id"):
+        reasons.append("未识别品牌")
+
+    cv = result.get("compliance_verification")
+    if cv and isinstance(cv, dict) and "passed" in cv and not cv.get("passed"):
+        for v in (cv.get("violations") or []):
+            reasons.append(v.get("name", "合规违规"))
+
+    bg = result.get("background_verification")
+    if bg and isinstance(bg, dict):
+        if not bg.get("success"):
+            reasons.append("背景分析失败")
+        elif bg.get("is_compliant") is False:
+            reasons.append("背景不符")
+
+    fv = result.get("font_verification")
+    if fv and isinstance(fv, dict) and fv.get("success"):
+        for k, v in (fv.get("results") or {}).items():
+            if v and v.get("conforms_flag") == "不是":
+                reasons.append(f"字体不符_{k}")
+
+    ext = input_file.suffix
+    stem = input_file.stem
+    if not reasons:
+        target_dir = base_dir / "good"
+        target_path = target_dir / input_file.name
+    else:
+        target_dir = base_dir / "bad"
+        reason_str = "_".join(reasons)
+        max_reason_len = 120 - len(stem) - 1
+        if max_reason_len > 0 and len(reason_str) > max_reason_len:
+            reason_str = reason_str[:max_reason_len]
+        target_path = target_dir / f"{stem}_{reason_str}{ext}"
+
+    target_dir.mkdir(parents=True, exist_ok=True)
+
+    cv2.imencode(ext, img_bgr)[1].tofile(str(target_path))
+    print(f"  [临时] 原图已保存: {target_path}")
+
+
 def run_logo_recognition(
     input_path: str,
     output_path: str,
@@ -116,9 +177,9 @@ def run_logo_recognition(
     #   blur_normalize: 是否用图像纹理方差归一化。
     #       开启(True)可消除分辨率差异影响；关闭后 threshold 需切换到 50-500 尺度。
     #   整体影响：模糊检测不通过时，OCR/Logo 检测/ROI/分类流程全部跳过，直接返回，
-    #       blur_detection.is_clear=False 作为标志位。
+    #   整体影响：模糊检测对 ROI 区域执行，结果仅作为标志位传递，不终止流程。
     blur_check: bool = True,
-    blur_threshold: float = 1.0,
+    blur_threshold: float = 0.4,
     blur_laplacian_weight: float = 0.5,
     blur_sobel_weight: float = 0.5,
     blur_normalize: bool = True,
@@ -191,67 +252,19 @@ def run_logo_recognition(
         log_path = _write_run_log(LOGS_DIR, input_file.stem, timing, result)
         result["timing"] = dict(timing)
         result["log_path"] = log_path
+
+        # ── 临时功能：按好/坏分类保存原图 ──
+        _save_classified_image(img_bgr, input_file, result)
+
         return result
 
-    # Step 0: 图像加载 + 模糊检测（在 OCR 之前执行，不通过则终止整个流程）
-    # 图像在此处加载一次，后续 Step 3 Logo 检测复用，避免重复读取
+    # Step 0: 图像加载（模糊检测移至 Step 4 后对 ROI 执行）
     t = time.perf_counter()
     img_bgr = cv2.imdecode(np.fromfile(str(input_file), dtype=np.uint8), cv2.IMREAD_COLOR)
     timing["image_load"] = time.perf_counter() - t
 
     blur_result = None
-    if blur_check:
-        if img_bgr is None:
-            return _finalize({
-                "success": False,
-                "blur_detection": None,
-                "ocr_result": None,
-                "filtered_tuples": [],
-                "logo_detections": [],
-                "logo_roi": None,
-                "brand_classification": None,
-                "compliance_verification": None,
-                "background_verification": None,
-                "font_verification": None,
-                "message": "无法读取图像文件，模糊检测无法执行",
-            })
-
-        t = time.perf_counter()
-        blur_result = check_clarity(
-            img_bgr,
-            threshold=blur_threshold,
-            laplacian_weight=blur_laplacian_weight,
-            sobel_weight=blur_sobel_weight,
-            normalize=blur_normalize,
-        )
-        timing["blur_detection"] = time.perf_counter() - t
-
-        if not blur_result.is_clear:
-            # 模糊检测未通过 → 终止流程，返回带 is_clear=False 标志位的结果
-            return _finalize({
-                "success": False,
-                "blur_detection": {
-                    "is_clear": False,
-                    "laplacian_var": blur_result.laplacian_var,
-                    "sobel_var": blur_result.sobel_var,
-                    "combined_score": blur_result.combined_score,
-                    "threshold": blur_result.threshold,
-                },
-                "ocr_result": None,
-                "filtered_tuples": [],
-                "logo_detections": [],
-                "logo_roi": None,
-                "brand_classification": None,
-                "compliance_verification": None,
-                "background_verification": None,
-                "font_verification": None,
-                "message": (
-                    f"图像模糊检测未通过: combined_score={blur_result.combined_score:.2f} "
-                    f"< threshold={blur_result.threshold:.2f}"
-                ),
-            })
-    else:
-        timing["blur_detection"] = None
+    timing["blur_detection"] = None
 
     # Step 1: OCR 定位识别
     t = time.perf_counter()
@@ -336,6 +349,35 @@ def run_logo_recognition(
         timing["roi_annotation"] = time.perf_counter() - t
     else:
         timing["roi_annotation"] = None
+
+    # Step 4.5: ROI 模糊检测（对 ROI 区域，阈值宽松，仅标志位）
+    if blur_check and roi_result.get("success") and roi_result.get("roi_image") is not None:
+        t = time.perf_counter()
+        blur_result = check_clarity(
+            roi_result["roi_image"],
+            threshold=blur_threshold,
+            laplacian_weight=blur_laplacian_weight,
+            sobel_weight=blur_sobel_weight,
+            normalize=blur_normalize,
+        )
+        timing["blur_detection"] = time.perf_counter() - t
+
+        # 将模糊分数写入 ROI JSON
+        roi_json_path = roi_result.get("roi_json_path")
+        if roi_json_path and Path(roi_json_path).exists():
+            with open(roi_json_path, "r", encoding="utf-8") as f:
+                roi_json_data = json.load(f)
+            roi_json_data["blur_detection"] = {
+                "is_clear": blur_result.is_clear,
+                "combined_score": round(blur_result.combined_score, 2),
+                "laplacian_var": round(blur_result.laplacian_var, 2),
+                "sobel_var": round(blur_result.sobel_var, 2),
+                "threshold": blur_result.threshold,
+            }
+            with open(roi_json_path, "w", encoding="utf-8") as f:
+                json.dump(roi_json_data, f, ensure_ascii=False, indent=2)
+    else:
+        timing["blur_detection"] = None
 
     # Step 5: 品牌标识类型识别
     t = time.perf_counter()
@@ -466,7 +508,7 @@ def run_logo_recognition(
 
 if __name__ == "__main__":
     result = run_logo_recognition(
-        input_path=str(BASE_DIR / "input" / "A1.10-2不同组合形式品牌标识(海外版)_3_竖式.png"),
+        input_path=str(BASE_DIR / "input"/"书宁整理的颜色测试图image"/"good"/"nanwan_pic_0gp6.png"),
         output_path=str(BASE_DIR / "ocr"),
     )
 
